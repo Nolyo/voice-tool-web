@@ -100,5 +100,38 @@
         "description": "No limits"
       }
     ]
+  },
+  "download": {
+    "hero": {
+      "title": "Download Voice Tool",
+      "description": "Voice transcription desktop application. Windows only."
+    },
+    "windows": {
+      "title": "Windows",
+      "requirement": "Windows 10 or higher",
+      "installers": {
+        "nsis": "NSIS Installer",
+        "msi": "MSI Installer",
+        "portable": "Portable version"
+      }
+    },
+    "installation": {
+      "title": "Installation instructions",
+      "step1": {
+        "title": "Download the installer",
+        "description": "Choose between NSIS installer (recommended), MSI or portable version"
+      },
+      "step2": {
+        "title": "Run the installation",
+        "description": "Open the downloaded file and follow the on-screen instructions"
+      },
+      "step3": {
+        "title": "Configure your API key",
+        "description": "Add your OpenAI Whisper API key in settings to enable transcription"
+      }
+    },
+    "button": "Download",
+    "loading": "Loading...",
+    "error": "Unable to load versions"
   }
 }
