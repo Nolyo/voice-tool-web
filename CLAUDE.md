@@ -74,12 +74,12 @@ pnpm lint
 - All documentation should be in /docs
 
 ## Commit and Push
-- Use conventional commits:
-    - feat: for new features
-    - fix: for bug fixes
-    - docs: for documentation changes
-    - style: for code style changes
-    - refactor: for code refactoring
-    - test: for adding or updating tests
-    - chore: for maintenance tasks
+- Use conventional commits: - Format: `<type>(<scope>): <message>`
+    - feat(xxx): for new features
+    - fix(xxx): for bug fixes
+    - docs(xxx): for documentation changes
+    - style(xxx): for code style changes
+    - refactor(xxx): for code refactoring
+    - test(xxx): for adding or updating tests
+    - chore(xxx): for maintenance tasks
 - Always in English, short and precise.

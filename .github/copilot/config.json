@@ -1,0 +1,16 @@
+{
+    "commitMessage": {
+        "style": "conventional",
+        "language": "english",
+        "maxLineLength": 72,
+        "types": [
+            "feat",
+            "fix",
+            "docs",
+            "chore",
+            "test",
+            "refactor"
+        ]
+    },
+    "instructions": "Follow Conventional Commits format strictly."
+}

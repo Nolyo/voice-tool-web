@@ -1,7 +1,12 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Download } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 export function HeroSection() {
+  const t = useTranslations("hero")
+
   return (
     <section className="relative overflow-hidden pt-32 pb-20">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-accent/20 via-background to-background" />
@@ -17,7 +22,7 @@ export function HeroSection() {
           </div>
 
           <h1 className="mb-6 text-balance text-5xl font-bold leading-tight tracking-tight md:text-7xl">
-            La plateforme complète pour{" "}
+            {t("title")}{" "}
             <span className="bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
               votre logiciel
             </span>
