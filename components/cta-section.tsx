@@ -1,7 +1,12 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 export function CTASection() {
+  const t = useTranslations("cta")
+
   return (
     <section className="py-24">
       <div className="container mx-auto px-4">
@@ -10,19 +15,22 @@ export function CTASection() {
 
           <div className="relative mx-auto max-w-3xl text-center">
             <h2 className="mb-6 text-balance text-4xl font-bold md:text-5xl">
-              Prêt à transformer votre distribution logicielle ?
+              {t("title")}
             </h2>
             <p className="mb-8 text-pretty text-lg leading-relaxed text-muted-foreground">
-              Rejoignez des milliers de développeurs qui font confiance à notre plateforme pour promouvoir et distribuer
-              leurs logiciels.
+              {t("description")}
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button size="lg" className="gap-2 text-base">
-                Commencer maintenant
+                {t("ctaPrimary")}
                 <ArrowRight className="h-4 w-4" />
               </Button>
               <Button size="lg" variant="outline" className="text-base bg-transparent">
-                Planifier une démo
+                <a 
+                href="https://github.com/Nolyo/voice-tool"
+                target="_blank"
+                rel="noopener noreferrer"
+                >{t("ctaSecondary")}</a>
               </Button>
             </div>
           </div>

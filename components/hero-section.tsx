@@ -18,29 +18,28 @@ export function HeroSection() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75"></span>
               <span className="relative inline-flex h-2 w-2 rounded-full bg-accent"></span>
             </span>
-            <span className="text-muted-foreground">Nouvelle version 2.0 disponible</span>
+            <span className="text-muted-foreground">{t("badge")}</span>
           </div>
 
           <h1 className="mb-6 text-balance text-5xl font-bold leading-tight tracking-tight md:text-7xl">
             {t("title")}{" "}
             <span className="bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-              votre logiciel
+              {t("titleHighlight")}
             </span>
           </h1>
 
           <p className="mx-auto mb-10 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground md:text-xl">
-            Promouvoir, documenter et distribuer votre logiciel n'a jamais été aussi simple. Une solution tout-en-un
-            pour les développeurs modernes.
+            {t("description")}
           </p>
 
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button size="lg" className="gap-2 text-base">
-              Commencer gratuitement
-              <ArrowRight className="h-4 w-4" />
+              <Download className="h-4 w-4" />
+              {t("ctaDownload")}
             </Button>
             <Button size="lg" variant="outline" className="gap-2 text-base bg-transparent">
-              <Download className="h-4 w-4" />
-              Télécharger
+              {t("ctaDemo")}
+              <ArrowRight className="h-4 w-4" />
             </Button>
           </div>
 
@@ -53,7 +52,7 @@ export function HeroSection() {
                   clipRule="evenodd"
                 />
               </svg>
-              <span>Installation en 2 minutes</span>
+              <span>{t("feature1")}</span>
             </div>
             <div className="flex items-center gap-2">
               <svg className="h-5 w-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
@@ -63,7 +62,7 @@ export function HeroSection() {
                   clipRule="evenodd"
                 />
               </svg>
-              <span>Aucune carte requise</span>
+              <span>{t("feature2")}</span>
             </div>
             <div className="flex items-center gap-2">
               <svg className="h-5 w-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
@@ -73,7 +72,7 @@ export function HeroSection() {
                   clipRule="evenodd"
                 />
               </svg>
-              <span>Support 24/7</span>
+              <span>{t("feature3")}</span>
             </div>
           </div>
         </div>

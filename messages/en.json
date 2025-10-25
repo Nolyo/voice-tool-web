@@ -1,5 +1,104 @@
 {
   "hero": {
-    "title": "The complete platform for"
+    "badge": "Version 2.1 available",
+    "title": "Voice transcription",
+    "titleHighlight": "in real-time",
+    "description": "Transform your voice into text instantly with AI. Audio recording, real-time visualization and automatic transcription powered by OpenAI Whisper.",
+    "ctaDownload": "Download",
+    "ctaDemo": "View demo",
+    "feature1": "Instant transcription",
+    "feature2": "Free and open source",
+    "feature3": "Windows compatible"
+  },
+  "cta": {
+    "title": "Ready to try Voice Tool?",
+    "description": "Download for free and start transcribing your voice recordings with artificial intelligence.",
+    "ctaPrimary": "Download for free",
+    "ctaSecondary": "View on GitHub"
+  },
+  "features": {
+    "heading": "Everything you need",
+    "subheading": "A complete application to transform your voice into text with artificial intelligence and advanced features.",
+    "items": [
+      {
+        "title": "AI Transcription",
+        "description": "Accurate and fast voice transcription powered by OpenAI Whisper. Multi-language support with automatic detection."
+      },
+      {
+        "title": "Audio Visualization",
+        "description": "Real-time audio level visualization with floating mini window and animated visual indicators."
+      },
+      {
+        "title": "Global Shortcuts",
+        "description": "Control recording from anywhere with customizable keyboard shortcuts (toggle, push-to-talk)."
+      },
+      {
+        "title": "Auto-paste",
+        "description": "Automatically paste transcribed text into the active window for an ultra-fast workflow."
+      },
+      {
+        "title": "Complete History",
+        "description": "Access all your past transcriptions with audio playback and integrated history management."
+      },
+      {
+        "title": "Modern Interface",
+        "description": "Tauri desktop application with elegant React interface, system tray and multi-window support."
+      }
+    ]
+  },
+  "header": {
+    "nav": {
+      "features": "Features",
+      "docs": "Documentation",
+      "download": "Download",
+      "github": "GitHub"
+    },
+    "cta": "Download"
+  },
+  "footer": {
+    "description": "Real-time voice transcription desktop application with artificial intelligence.",
+    "product": {
+      "title": "Product",
+      "features": "Features",
+      "download": "Download",
+      "changelog": "Changelog"
+    },
+    "resources": {
+      "title": "Resources",
+      "documentation": "Documentation",
+      "github": "GitHub",
+      "support": "Support"
+    },
+    "legal": {
+      "title": "Legal",
+      "license": "License",
+      "privacy": "Privacy",
+      "terms": "Terms"
+    },
+    "copyright": "© 2025 Voice Tool. All rights reserved."
+  },
+  "stats": {
+    "items": [
+      {
+        "value": "v2.1",
+        "label": "Current version",
+        "description": "Regular updates"
+      },
+      {
+        "value": "98%",
+        "label": "AI Accuracy",
+        "description": "OpenAI Whisper"
+      },
+      {
+        "value": "Open",
+        "label": "Source",
+        "description": "GitHub"
+      },
+      {
+        "value": "100%",
+        "label": "Free",
+        "description": "No limits"
+      }
+    ]
   }
 }
