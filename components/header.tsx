@@ -1,9 +1,9 @@
 "use client"
 
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Mic } from "lucide-react"
 import { useTranslations } from "next-intl"
+import { Link } from "@/i18n/routing"
 
 export function Header() {
   const t = useTranslations("header")
@@ -25,7 +25,7 @@ export function Header() {
           <Link href="#docs" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
             {t("nav.docs")}
           </Link>
-          <Link href="#download" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+          <Link href="/download" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
             {t("nav.download")}
           </Link>
           <Link href="https://github.com/Nolyo/voice-tool" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
@@ -35,7 +35,7 @@ export function Header() {
 
         <div className="flex items-center gap-3">
           <Button size="sm" asChild>
-            <Link href="#download">{t("cta")}</Link>
+            <Link href="/download">{t("cta")}</Link>
           </Button>
         </div>
       </div>
