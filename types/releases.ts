@@ -13,6 +13,18 @@ export interface WindowsInstallers {
   portable?: Installer
 }
 
+export interface LinuxInstallers {
+  deb?: Installer
+  rpm?: Installer
+  appimage?: Installer
+  tarball?: Installer
+}
+
+export interface MacOSInstallers {
+  dmg?: Installer
+  app?: Installer
+}
+
 export interface Release {
   version: string
   tag: string
@@ -20,6 +32,8 @@ export interface Release {
   changelog_url: string
   release_notes: string
   windows?: WindowsInstallers
+  linux?: LinuxInstallers
+  macos?: MacOSInstallers
 }
 
 export interface ReleasesData {

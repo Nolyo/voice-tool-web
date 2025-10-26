@@ -110,9 +110,27 @@
       "title": "Windows",
       "requirement": "Windows 10 ou supérieur",
       "installers": {
-        "nsis": "Installateur NSIS",
-        "msi": "Installateur MSI",
-        "portable": "Version portable"
+        "nsis": ".exe NSIS (recommandé)",
+        "msi": "MSI (Entreprise)",
+        "portable": ".exe Portable"
+      }
+    },
+    "linux": {
+      "title": "Linux",
+      "requirement": "Distribution Linux moderne",
+      "installers": {
+        "deb": "Package DEB",
+        "rpm": "Package RPM",
+        "appimage": "AppImage",
+        "tarball": "Archive TAR.GZ"
+      }
+    },
+    "macos": {
+      "title": "macOS",
+      "requirement": "macOS 11 ou supérieur",
+      "installers": {
+        "dmg": "Image disque DMG",
+        "app": "Application .app"
       }
     },
     "installation": {

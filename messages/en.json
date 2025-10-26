@@ -115,6 +115,24 @@
         "portable": "Portable version"
       }
     },
+    "linux": {
+      "title": "Linux",
+      "requirement": "Modern Linux distribution",
+      "installers": {
+        "deb": "DEB Package",
+        "rpm": "RPM Package",
+        "appimage": "AppImage",
+        "tarball": "TAR.GZ Archive"
+      }
+    },
+    "macos": {
+      "title": "macOS",
+      "requirement": "macOS 11 or higher",
+      "installers": {
+        "dmg": "DMG Disk Image",
+        "app": ".app Application"
+      }
+    },
     "installation": {
       "title": "Installation instructions",
       "step1": {
