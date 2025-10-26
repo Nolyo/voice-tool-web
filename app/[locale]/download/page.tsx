@@ -45,9 +45,9 @@ export default function DownloadPage() {
           {/* Download Cards */}
           {!isLoading && !error && latest && (
             <>
-              <div className="mx-auto max-w-5xl grid gap-6 md:grid-cols-3 mb-16">
+              <div className="mx-auto max-w-5xl grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-16">
                 {/* NSIS Installer */}
-                {latest.windows?.nsis && (
+                {latest.windows?.nsis_installer && (
                   <Card className="p-6 bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-colors">
                     <div className="flex flex-col items-center text-center gap-4">
                       <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
@@ -61,11 +61,11 @@ export default function DownloadPage() {
                           {t("windows.requirement")}
                         </p>
                         <p className="text-xs text-muted-foreground mb-4">
-                          {latest.version} • {latest.windows.nsis.size_human}
+                          {latest.version} • {latest.windows.nsis_installer.size_human}
                         </p>
                       </div>
                       <Button className="w-full" size="lg" asChild>
-                        <a href={latest.windows.nsis.url} download>
+                        <a href={latest.windows.nsis_installer.url} download>
                           <Download className="mr-2 h-4 w-4" />
                           {t("button")}
                         </a>
@@ -75,7 +75,7 @@ export default function DownloadPage() {
                 )}
 
                 {/* MSI Installer */}
-                {latest.windows?.msi && (
+                {latest.windows?.msi_installer && (
                   <Card className="p-6 bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-colors">
                     <div className="flex flex-col items-center text-center gap-4">
                       <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
@@ -89,11 +89,11 @@ export default function DownloadPage() {
                           {t("windows.requirement")}
                         </p>
                         <p className="text-xs text-muted-foreground mb-4">
-                          {latest.version} • {latest.windows.msi.size_human}
+                          {latest.version} • {latest.windows.msi_installer.size_human}
                         </p>
                       </div>
                       <Button className="w-full" size="lg" asChild>
-                        <a href={latest.windows.msi.url} download>
+                        <a href={latest.windows.msi_installer.url} download>
                           <Download className="mr-2 h-4 w-4" />
                           {t("button")}
                         </a>

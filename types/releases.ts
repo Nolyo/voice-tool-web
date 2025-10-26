@@ -8,8 +8,8 @@ export interface Installer {
 }
 
 export interface WindowsInstallers {
-  nsis?: Installer
-  msi?: Installer
+  nsis_installer?: Installer
+  msi_installer?: Installer
   portable?: Installer
 }
 
