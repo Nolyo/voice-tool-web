@@ -151,5 +151,23 @@
     "button": "Download",
     "loading": "Loading...",
     "error": "Unable to load versions"
+  },
+  "docs": {
+    "gettingStarted": {
+      "title": "Getting Started"
+    },
+    "installation": {
+      "title": "Installation"
+    },
+    "configuration": {
+      "title": "Configuration"
+    }
+  },
+  "sidebar": {
+    "introduction": {
+      "gettingStarted": "Getting Started",
+      "installation": "Installation",
+      "configuration": "Configuration"
+    }
   }
 }

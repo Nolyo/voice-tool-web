@@ -19,9 +19,6 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex">
-          <Link href="#features" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-            {t("nav.features")}
-          </Link>
           <Link href="/docs" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
             {t("nav.docs")}
           </Link>

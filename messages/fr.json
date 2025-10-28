@@ -151,5 +151,23 @@
     "button": "Télécharger",
     "loading": "Chargement...",
     "error": "Impossible de charger les versions"
+  },
+  "docs": {
+    "gettingStarted": {
+      "title": "Démarrage rapide"
+    },
+    "installation": {
+      "title": "Installation"
+    },
+    "configuration": {
+      "title": "Configuration"
+    }
+  },
+  "sidebar": {
+    "introduction": {
+      "gettingStarted": "Démarrage rapide",
+      "installation": "Installation",
+      "configuration": "Configuration"
+    }
   }
 }
