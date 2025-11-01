@@ -92,7 +92,7 @@
       {
         "value": "98%",
         "label": "Précision IA",
-        "description": "OpenAI Whisper"
+        "description": "OpenAI Whisper / Deepgram Streaming"
       },
       {
         "value": "Open",
