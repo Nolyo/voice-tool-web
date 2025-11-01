@@ -4,7 +4,7 @@ import type React from "react"
 
 import { useState } from "react"
 import { Link } from "@/i18n/routing"
-import { ChevronDown, ChevronRight, Search, FileText, Book, Code, Layers } from "lucide-react"
+import { ChevronDown, Search, FileText, Book, Code, Layers } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils"
 import { useReleases } from "@/hooks/use-releases"
@@ -14,11 +14,6 @@ interface DocItem {
     title: string
     href: string
     icon?: React.ReactNode
-}
-
-interface DocSection {
-    title: string
-    items: DocItem[]
 }
 
 function useDocSections() {
@@ -106,7 +101,7 @@ export function DocsSidebar() {
             </div>
 
             {/* Navigation */}
-            <nav className="flex-1 overflow-y-auto p-4">
+            <nav className="flex-1 overflow-y-auto p-4 sidebar-scroll">
                 <div className="space-y-4">
                     {filteredSections.map((section) => (
                         <div key={section.title}>
@@ -115,15 +110,23 @@ export function DocsSidebar() {
                                 className="flex items-center justify-between w-full text-sm font-medium text-foreground hover:text-primary transition-colors mb-2"
                             >
                                 <span>{section.title}</span>
-                                {expandedSections.has(section.title) ? (
-                                    <ChevronDown className="h-4 w-4" />
-                                ) : (
-                                    <ChevronRight className="h-4 w-4" />
-                                )}
+                                <ChevronDown
+                                    className={cn(
+                                        "h-4 w-4 transition-transform duration-200",
+                                        expandedSections.has(section.title) ? "rotate-0" : "-rotate-90"
+                                    )}
+                                />
                             </button>
 
-                            {expandedSections.has(section.title) && (
-                                <ul className="space-y-1 ml-2">
+                            <div
+                                className={cn(
+                                    "grid transition-all duration-200 ease-in-out",
+                                    expandedSections.has(section.title)
+                                        ? "grid-rows-[1fr] opacity-100"
+                                        : "grid-rows-[0fr] opacity-0"
+                                )}
+                            >
+                                <ul className="space-y-1 ml-2 overflow-hidden">
                                     {section.items.map((item) => (
                                         <li key={item.href}>
                                             <Link
@@ -139,7 +142,7 @@ export function DocsSidebar() {
                                         </li>
                                     ))}
                                 </ul>
-                            )}
+                            </div>
                         </div>
                     ))}
                 </div>
