@@ -55,6 +55,11 @@
     },
     "cta": "Download"
   },
+  "languageSwitcher": {
+    "ariaLabel": "Switch language",
+    "switchToFrench": "Passer en français",
+    "switchToEnglish": "Switch to English"
+  },
   "footer": {
     "description": "Real-time voice transcription desktop application with artificial intelligence.",
     "product": {
@@ -151,5 +156,23 @@
     "button": "Download",
     "loading": "Loading...",
     "error": "Unable to load versions"
+  },
+  "docs": {
+    "gettingStarted": {
+      "title": "Getting Started"
+    },
+    "installation": {
+      "title": "Installation"
+    },
+    "configuration": {
+      "title": "Configuration"
+    }
+  },
+  "sidebar": {
+    "introduction": {
+      "gettingStarted": "Getting Started",
+      "installation": "Installation",
+      "configuration": "Configuration"
+    }
   }
 }

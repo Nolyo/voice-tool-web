@@ -6,7 +6,7 @@ import type { ReleasesData, Release } from "@/types/releases"
 const RELEASES_URL =
   "https://raw.githubusercontent.com/Nolyo/voice-tool/main/docs/releases.json"
 const CACHE_KEY = "voice-tool-releases"
-const CACHE_DURATION = 1000 * 60 * 15 // 15 minutes
+const CACHE_DURATION = 1000 * 60 * 60 // 1 hour
 
 interface CachedData {
   data: ReleasesData
