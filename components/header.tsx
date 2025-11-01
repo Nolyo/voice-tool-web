@@ -1,6 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import { LanguageSwitcher } from "@/components/language-switcher"
 import { Mic } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { Link } from "@/i18n/routing"
@@ -31,6 +32,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
+          <LanguageSwitcher />
           <Button size="sm" asChild>
             <Link href="/download">{t("cta")}</Link>
           </Button>

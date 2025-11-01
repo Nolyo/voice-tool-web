@@ -55,6 +55,11 @@
     },
     "cta": "Télécharger"
   },
+  "languageSwitcher": {
+    "ariaLabel": "Changer de langue",
+    "switchToFrench": "Passer en français",
+    "switchToEnglish": "Switch to English"
+  },
   "footer": {
     "description": "Application desktop de transcription vocale en temps réel avec intelligence artificielle.",
     "product": {
