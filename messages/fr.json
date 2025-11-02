@@ -55,6 +55,11 @@
     },
     "cta": "Télécharger"
   },
+  "languageSwitcher": {
+    "ariaLabel": "Changer de langue",
+    "switchToFrench": "Passer en français",
+    "switchToEnglish": "Switch to English"
+  },
   "footer": {
     "description": "Application desktop de transcription vocale en temps réel avec intelligence artificielle.",
     "product": {
@@ -87,7 +92,7 @@
       {
         "value": "98%",
         "label": "Précision IA",
-        "description": "OpenAI Whisper"
+        "description": "OpenAI Whisper / Deepgram Streaming"
       },
       {
         "value": "Open",
@@ -151,5 +156,23 @@
     "button": "Télécharger",
     "loading": "Chargement...",
     "error": "Impossible de charger les versions"
+  },
+  "docs": {
+    "gettingStarted": {
+      "title": "Démarrage rapide"
+    },
+    "installation": {
+      "title": "Installation"
+    },
+    "configuration": {
+      "title": "Configuration"
+    }
+  },
+  "sidebar": {
+    "introduction": {
+      "gettingStarted": "Démarrage rapide",
+      "installation": "Installation",
+      "configuration": "Configuration"
+    }
   }
 }
