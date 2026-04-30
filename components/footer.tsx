@@ -1,6 +1,6 @@
 "use client"
 
-import Link from "next/link"
+import { Link } from "@/i18n/routing"
 import { Mic } from "lucide-react"
 import { useTranslations } from "next-intl"
 
@@ -27,12 +27,12 @@ export function Footer() {
             <h3 className="mb-4 text-sm font-semibold">{t("product.title")}</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="#features" className="text-muted-foreground transition-colors hover:text-foreground">
+                <Link href="/features" className="text-muted-foreground transition-colors hover:text-foreground">
                   {t("product.features")}
                 </Link>
               </li>
               <li>
-                <Link href="#download" className="text-muted-foreground transition-colors hover:text-foreground">
+                <Link href="/download" className="text-muted-foreground transition-colors hover:text-foreground">
                   {t("product.download")}
                 </Link>
               </li>
@@ -47,11 +47,6 @@ export function Footer() {
           <div>
             <h3 className="mb-4 text-sm font-semibold">{t("resources.title")}</h3>
             <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="#docs" className="text-muted-foreground transition-colors hover:text-foreground">
-                  {t("resources.documentation")}
-                </Link>
-              </li>
               <li>
                 <Link href="https://github.com/Nolyo/voice-tool" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-foreground">
                   {t("resources.github")}
@@ -74,12 +69,12 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#privacy" className="text-muted-foreground transition-colors hover:text-foreground">
+                <Link href="/legal/privacy" className="text-muted-foreground transition-colors hover:text-foreground">
                   {t("legal.privacy")}
                 </Link>
               </li>
               <li>
-                <Link href="#terms" className="text-muted-foreground transition-colors hover:text-foreground">
+                <Link href="/legal/terms" className="text-muted-foreground transition-colors hover:text-foreground">
                   {t("legal.terms")}
                 </Link>
               </li>

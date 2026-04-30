@@ -22,9 +22,6 @@ export function Header() {
           <Link href="#features" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
             {t("nav.features")}
           </Link>
-          <Link href="#docs" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-            {t("nav.docs")}
-          </Link>
           <Link href="/download" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
             {t("nav.download")}
           </Link>

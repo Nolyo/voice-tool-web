@@ -1,6 +1,6 @@
 {
   "hero": {
-    "badge": "Version 2.1 disponible",
+    "badge": "Bientôt disponible",
     "title": "Transcription vocale",
     "titleHighlight": "en temps réel",
     "description": "Transformez votre voix en texte instantanément avec l'IA. Enregistrement audio, visualisation en temps réel et transcription automatique via OpenAI Whisper.",
@@ -49,7 +49,6 @@
   "header": {
     "nav": {
       "features": "Fonctionnalités",
-      "docs": "Documentation",
       "download": "Télécharger",
       "github": "GitHub"
     },
@@ -65,7 +64,6 @@
     },
     "resources": {
       "title": "Ressources",
-      "documentation": "Documentation",
       "github": "GitHub",
       "support": "Support"
     },
@@ -76,30 +74,6 @@
       "terms": "Conditions"
     },
     "copyright": "© 2025 Voice Tool. Tous droits réservés."
-  },
-  "stats": {
-    "items": [
-      {
-        "value": "v2.1",
-        "label": "Version actuelle",
-        "description": "Mise à jour régulière"
-      },
-      {
-        "value": "98%",
-        "label": "Précision IA",
-        "description": "OpenAI Whisper"
-      },
-      {
-        "value": "Open",
-        "label": "Source libre",
-        "description": "GitHub"
-      },
-      {
-        "value": "100%",
-        "label": "Gratuit",
-        "description": "Sans limite"
-      }
-    ]
   },
   "download": {
     "hero": {
