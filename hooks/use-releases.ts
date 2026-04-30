@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import type { ReleasesData, Release } from "@/types/releases"
 
 const RELEASES_URL =
+  process.env.NEXT_PUBLIC_RELEASES_URL ??
   "https://raw.githubusercontent.com/Nolyo/voice-tool/main/docs/releases.json"
 const CACHE_KEY = "voice-tool-releases"
 const CACHE_DURATION = 1000 * 60 * 15 // 15 minutes

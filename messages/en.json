@@ -1,6 +1,10 @@
 {
+  "home": {
+    "metaTitle": "Voice Tool — Voice transcription, anywhere, instantly",
+    "metaDescription": "Transform your voice into text instantly. Local GPU transcription, AI post-processing, connected notes. Free forever for local use."
+  },
   "hero": {
-    "badge": "Version 2.1 available",
+    "badge": "Coming soon",
     "title": "Voice transcription",
     "titleHighlight": "in real-time",
     "description": "Transform your voice into text instantly with AI. Audio recording, real-time visualization and automatic transcription powered by OpenAI Whisper.",
@@ -49,7 +53,6 @@
   "header": {
     "nav": {
       "features": "Features",
-      "docs": "Documentation",
       "download": "Download",
       "github": "GitHub"
     },
@@ -65,7 +68,6 @@
     },
     "resources": {
       "title": "Resources",
-      "documentation": "Documentation",
       "github": "GitHub",
       "support": "Support"
     },
@@ -76,30 +78,6 @@
       "terms": "Terms"
     },
     "copyright": "© 2025 Voice Tool. All rights reserved."
-  },
-  "stats": {
-    "items": [
-      {
-        "value": "v2.1",
-        "label": "Current version",
-        "description": "Regular updates"
-      },
-      {
-        "value": "98%",
-        "label": "AI Accuracy",
-        "description": "OpenAI Whisper"
-      },
-      {
-        "value": "Open",
-        "label": "Source",
-        "description": "GitHub"
-      },
-      {
-        "value": "100%",
-        "label": "Free",
-        "description": "No limits"
-      }
-    ]
   },
   "download": {
     "hero": {
