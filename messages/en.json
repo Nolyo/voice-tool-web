@@ -1,4 +1,8 @@
 {
+  "home": {
+    "metaTitle": "Voice Tool — Voice transcription, anywhere, instantly",
+    "metaDescription": "Transform your voice into text instantly. Local GPU transcription, AI post-processing, connected notes. Free forever for local use."
+  },
   "hero": {
     "badge": "Coming soon",
     "title": "Voice transcription",
