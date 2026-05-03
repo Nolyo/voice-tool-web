@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/check-locale-parity.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "check:i18n": "node scripts/check-locale-parity.mjs",
     "test:e2e": "playwright test"
   },
   "dependencies": {
