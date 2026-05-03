@@ -1,25 +1,44 @@
 import { ImageResponse } from "next/og"
+import { siteConfig, type Locale } from "@/lib/site-config"
+import enMessages from "@/messages/en.json"
+import frMessages from "@/messages/fr.json"
 
 export const runtime = "nodejs"
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 export const alt = "Lexena — voice dictation for Windows"
 
-// Hex equivalents of the design-system tokens (Satori does not parse oklch).
-const TOKENS = {
-  bg: "#13161d", // --vt-bg
-  panel: "#181b23", // --vt-panel
-  border: "#2b2f3a", // --vt-border
-  fg: "#f3f4f6", // --vt-fg
-  fg2: "#bdc2cc", // --vt-fg-2
-  fg4: "#5a6172", // --vt-fg-4
-  accent: "#2eb291", // --vt-accent (Lexena green)
-  accentBorder: "rgba(46, 178, 145, 0.55)",
-  accentSoft: "rgba(46, 178, 145, 0.18)",
-  danger: "#e2495a",
+const MESSAGES: Record<Locale, typeof enMessages> = {
+  en: enMessages,
+  fr: frMessages as typeof enMessages,
 }
 
-export default async function OpengraphImage() {
+// Hex equivalents of the design-system tokens (Satori does not parse oklch).
+const TOKENS = {
+  bg: "#13161d",
+  border: "#2b2f3a",
+  fg: "#f3f4f6",
+  fg4: "#5a6172",
+  accent: "#2eb291",
+  accentBorder: "rgba(46, 178, 145, 0.55)",
+  accentSoft: "rgba(46, 178, 145, 0.18)",
+}
+
+export default async function OpengraphImage({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale: rawLocale } = await params
+  const locale = (
+    siteConfig.locales as readonly string[]
+  ).includes(rawLocale)
+    ? (rawLocale as Locale)
+    : siteConfig.defaultLocale
+  const m = MESSAGES[locale]
+  const og = m.home.og
+  const eyebrow = m.home.hero.eyebrow
+
   return new ImageResponse(
     (
       <div
@@ -34,7 +53,6 @@ export default async function OpengraphImage() {
           fontFamily: "Inter, system-ui, sans-serif",
         }}
       >
-        {/* Top — Lexena lockup + status pill */}
         <div
           style={{
             display: "flex",
@@ -55,7 +73,6 @@ export default async function OpengraphImage() {
                 justifyContent: "center",
                 fontSize: 38,
                 fontWeight: 700,
-                fontFamily: "Inter, system-ui, sans-serif",
               }}
             >
               L
@@ -80,7 +97,7 @@ export default async function OpengraphImage() {
                   fontFamily: "monospace",
                 }}
               >
-                Voice dictation · Windows
+                {og.subtitle}
               </div>
             </div>
           </div>
@@ -109,11 +126,10 @@ export default async function OpengraphImage() {
                 background: TOKENS.accent,
               }}
             />
-            v3.0 · public beta
+            {eyebrow}
           </div>
         </div>
 
-        {/* Headline */}
         <div
           style={{
             display: "flex",
@@ -131,7 +147,7 @@ export default async function OpengraphImage() {
               color: TOKENS.fg,
             }}
           >
-            Speak.
+            {og.line1}
           </div>
           <div
             style={{
@@ -143,11 +159,10 @@ export default async function OpengraphImage() {
               marginTop: 4,
             }}
           >
-            Lexena writes.
+            {og.line2}
           </div>
         </div>
 
-        {/* Bottom — facts strip */}
         <div
           style={{
             display: "flex",
@@ -163,9 +178,9 @@ export default async function OpengraphImage() {
             letterSpacing: "0.08em",
           }}
         >
-          <span>Local on GPU</span>
+          <span>{og.factLocal}</span>
           <span>·</span>
-          <span>Open source · MIT</span>
+          <span>{og.factOpenSource}</span>
           <span>·</span>
           <span>github.com/Nolyo/lexena</span>
         </div>

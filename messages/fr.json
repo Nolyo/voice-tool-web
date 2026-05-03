@@ -44,6 +44,13 @@
   "home": {
     "metaTitle": "Lexena — Dictée vocale pour Windows",
     "metaDescription": "Maintenez une touche, dictez, le texte apparaît dans n'importe quelle application. Whisper local sur GPU, post-process IA, notes et profils. Beta publique.",
+    "og": {
+      "subtitle": "Dictée vocale · Windows",
+      "line1": "Parlez.",
+      "line2": "Lexena écrit.",
+      "factLocal": "Local sur GPU",
+      "factOpenSource": "Open source · MIT"
+    },
     "hero": {
       "eyebrow": "v3.0 · Beta publique",
       "titleLead": "Parlez.",
