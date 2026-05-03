@@ -26,3 +26,17 @@ for (const path of ROUTES) {
     expect(errors).toEqual([])
   })
 }
+
+const HOME_ROUTES = ["/", "/fr"]
+for (const path of HOME_ROUTES) {
+  test(`exposes valid SoftwareApplication JSON-LD on ${path}`, async ({ page }) => {
+    await page.goto(path)
+    const raw = await page.locator('script[type="application/ld+json"]').first().textContent()
+    expect(raw, "JSON-LD script must be present on the home page").toBeTruthy()
+    const parsed = JSON.parse(raw as string)
+    expect(parsed["@type"]).toBe("SoftwareApplication")
+    expect(parsed.name).toBe("Lexena")
+    expect(parsed.operatingSystem).toBe("Windows")
+    expect(parsed.offers?.price).toBe("0")
+  })
+}
