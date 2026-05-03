@@ -1,96 +1,137 @@
-"use client"
-
-import Link from "next/link"
-import { Mic } from "lucide-react"
+import Image from "next/image"
+import { Link } from "@/i18n/routing"
 import { useTranslations } from "next-intl"
+import { siteConfig } from "@/lib/site-config"
+import { Container } from "@/components/layout/container"
+import { Eyebrow } from "@/components/layout/eyebrow"
 
 export function Footer() {
   const t = useTranslations("footer")
 
   return (
-    <footer className="border-t border-border bg-card/50 py-12">
-      <div className="container mx-auto px-4">
-        <div className="grid gap-8 md:grid-cols-4">
+    <footer
+      className="border-t border-[var(--vt-border)]"
+      style={{ background: "var(--vt-panel)" }}
+    >
+      <Container size="lg" className="py-14">
+        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <div className="mb-4 flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary">
-                <Mic className="h-5 w-5 text-primary-foreground" />
-              </div>
-              <span className="text-xl font-semibold">Voice Tool</span>
+            <div className="mb-4 flex items-center gap-2.5">
+              <Image
+                src="/lexena-monogram.png"
+                alt=""
+                width={28}
+                height={28}
+                className="h-7 w-7 rounded-[7px]"
+              />
+              <span className="vt-display text-[15px] font-semibold tracking-[-0.01em] text-[var(--vt-fg)]">
+                {siteConfig.name}
+              </span>
             </div>
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              {t("description")}
+            <p className="text-[13.5px] leading-[1.55] text-[var(--vt-fg-3)] max-w-xs">
+              {t("tagline")}
+            </p>
+            <p className="vt-mono mt-5 text-[10.5px] uppercase tracking-[0.08em] text-[var(--vt-fg-4)]">
+              {t("buildNote")}
             </p>
           </div>
 
-          <div>
-            <h3 className="mb-4 text-sm font-semibold">{t("product.title")}</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="#features" className="text-muted-foreground transition-colors hover:text-foreground">
-                  {t("product.features")}
-                </Link>
-              </li>
-              <li>
-                <Link href="#download" className="text-muted-foreground transition-colors hover:text-foreground">
-                  {t("product.download")}
-                </Link>
-              </li>
-              <li>
-                <Link href="https://github.com/Nolyo/voice-tool/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-foreground">
-                  {t("product.changelog")}
-                </Link>
-              </li>
-            </ul>
-          </div>
+          <FooterColumn label={t("product.title")}>
+            <FooterLink href="/features">{t("product.features")}</FooterLink>
+            <FooterLink href="/pricing">{t("product.pricing")}</FooterLink>
+            <FooterLink href="/download">{t("product.download")}</FooterLink>
+            <FooterLinkExternal
+              href={`${siteConfig.githubRepo}/blob/main/CHANGELOG.md`}
+            >
+              {t("product.changelog")}
+            </FooterLinkExternal>
+          </FooterColumn>
 
-          <div>
-            <h3 className="mb-4 text-sm font-semibold">{t("resources.title")}</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="#docs" className="text-muted-foreground transition-colors hover:text-foreground">
-                  {t("resources.documentation")}
-                </Link>
-              </li>
-              <li>
-                <Link href="https://github.com/Nolyo/voice-tool" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-foreground">
-                  {t("resources.github")}
-                </Link>
-              </li>
-              <li>
-                <Link href="https://github.com/Nolyo/voice-tool/issues" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-foreground">
-                  {t("resources.support")}
-                </Link>
-              </li>
-            </ul>
-          </div>
+          <FooterColumn label={t("resources.title")}>
+            <FooterLinkExternal href={siteConfig.githubRepo}>
+              {t("resources.github")}
+            </FooterLinkExternal>
+            <FooterLinkExternal href={`${siteConfig.githubRepo}/issues`}>
+              {t("resources.issues")}
+            </FooterLinkExternal>
+            <FooterLinkExternal href={siteConfig.githubReleasesUrl}>
+              {t("resources.releases")}
+            </FooterLinkExternal>
+          </FooterColumn>
 
-          <div>
-            <h3 className="mb-4 text-sm font-semibold">{t("legal.title")}</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="https://github.com/Nolyo/voice-tool/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-foreground">
-                  {t("legal.license")}
-                </Link>
-              </li>
-              <li>
-                <Link href="#privacy" className="text-muted-foreground transition-colors hover:text-foreground">
-                  {t("legal.privacy")}
-                </Link>
-              </li>
-              <li>
-                <Link href="#terms" className="text-muted-foreground transition-colors hover:text-foreground">
-                  {t("legal.terms")}
-                </Link>
-              </li>
-            </ul>
-          </div>
+          <FooterColumn label={t("legal.title")}>
+            <FooterLinkExternal
+              href={`${siteConfig.githubRepo}/blob/main/LICENSE`}
+            >
+              {t("legal.license")}
+            </FooterLinkExternal>
+            <FooterLink href="/legal/privacy">{t("legal.privacy")}</FooterLink>
+            <FooterLink href="/legal/terms">{t("legal.terms")}</FooterLink>
+          </FooterColumn>
         </div>
 
-        <div className="mt-12 border-t border-border pt-8 text-center text-sm text-muted-foreground">
-          <p>{t("copyright")}</p>
+        <div className="mt-14 flex flex-col gap-3 border-t border-[var(--vt-border)] pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-[12px] text-[var(--vt-fg-4)]">{t("copyright")}</p>
+          <p className="vt-mono text-[10.5px] uppercase tracking-[0.08em] text-[var(--vt-fg-4)]">
+            github.com/nolyo/lexena
+          </p>
         </div>
-      </div>
+      </Container>
     </footer>
+  )
+}
+
+function FooterColumn({
+  label,
+  children,
+}: {
+  label: string
+  children: React.ReactNode
+}) {
+  return (
+    <div>
+      <Eyebrow className="mb-4">{label}</Eyebrow>
+      <ul className="space-y-2.5 text-[13px]">{children}</ul>
+    </div>
+  )
+}
+
+function FooterLink({
+  href,
+  children,
+}: {
+  href: "/features" | "/pricing" | "/download" | "/legal/privacy" | "/legal/terms"
+  children: React.ReactNode
+}) {
+  return (
+    <li>
+      <Link
+        href={href}
+        className="text-[var(--vt-fg-3)] transition-colors hover:text-[var(--vt-fg)]"
+      >
+        {children}
+      </Link>
+    </li>
+  )
+}
+
+function FooterLinkExternal({
+  href,
+  children,
+}: {
+  href: string
+  children: React.ReactNode
+}) {
+  return (
+    <li>
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-[var(--vt-fg-3)] transition-colors hover:text-[var(--vt-fg)]"
+      >
+        {children}
+      </a>
+    </li>
   )
 }

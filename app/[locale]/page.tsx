@@ -1,21 +1,25 @@
 import { Header } from "@/components/header"
-import { HeroSection } from "@/components/hero-section"
-import { StatsSection } from "@/components/stats-section"
-import { FeaturesSection } from "@/components/features-section"
-import { CTASection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
+import { HeroHome } from "@/components/sections/hero-home"
+import { HowItWorks } from "@/components/sections/how-it-works"
+import { Personas } from "@/components/sections/personas"
+import { FlagshipFeatures } from "@/components/sections/flagship-features"
+import { LocalOrCloud } from "@/components/sections/local-or-cloud"
+import { FinalCta } from "@/components/sections/final-cta"
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <>
       <Header />
-      <main>
-        <HeroSection />
-        <StatsSection />
-        <FeaturesSection />
-        <CTASection />
+      <main id="main">
+        <HeroHome />
+        <HowItWorks />
+        <Personas />
+        <FlagshipFeatures />
+        <LocalOrCloud />
+        <FinalCta />
       </main>
       <Footer />
-    </div>
+    </>
   )
 }
