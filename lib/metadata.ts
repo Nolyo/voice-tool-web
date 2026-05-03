@@ -3,21 +3,28 @@ import { getTranslations } from "next-intl/server"
 import { siteConfig, type Locale } from "./site-config"
 
 interface BuildMetadataOptions {
-  /** i18n namespace containing `metaTitle` and `metaDescription` keys. */
+  /** i18n namespace containing `metaTitle`, `metaDescription`, and (for non-home pages) `pageTitle`. */
   namespace: string
   /** Path under the locale (e.g. "/features"). Use "/" for the home. */
   path: string
   locale: Locale
+  /**
+   * If true, the title is emitted as `{ default, template }` so child pages can
+   * inherit the `%s — Lexena` template via Next.js metadata merging. Use this on
+   * the locale layout. Pages should leave it false (default).
+   */
+  isLayoutDefault?: boolean
 }
 
 export async function buildMetadata({
   namespace,
   path,
   locale,
+  isLayoutDefault = false,
 }: BuildMetadataOptions): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace })
 
-  const title = t("metaTitle")
+  const fullTitle = t("metaTitle")
   const description = t("metaDescription")
   const localizedPath =
     locale === siteConfig.defaultLocale ? path : `/${locale}${path}`
@@ -31,6 +38,10 @@ export async function buildMetadata({
   }
   languages["x-default"] = `${siteConfig.url}${path}`
 
+  const title: Metadata["title"] = isLayoutDefault
+    ? { default: fullTitle, template: `%s — ${siteConfig.name}` }
+    : t("pageTitle")
+
   return {
     metadataBase: new URL(siteConfig.url),
     title,
@@ -40,7 +51,7 @@ export async function buildMetadata({
       languages,
     },
     openGraph: {
-      title,
+      title: fullTitle,
       description,
       url: canonical,
       siteName: siteConfig.name,
@@ -49,7 +60,7 @@ export async function buildMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title,
+      title: fullTitle,
       description,
     },
   }

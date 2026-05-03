@@ -193,6 +193,7 @@
   "features": {
     "metaTitle": "Features — Lexena",
     "metaDescription": "Full inventory: dictation, local or cloud transcription, AI post-processing, connected notes, profiles, sync, system experience.",
+    "pageTitle": "Features",
     "hero": {
       "eyebrow": "Inventory",
       "title": "Everything Lexena does.",
@@ -347,6 +348,7 @@
   "pricing": {
     "metaTitle": "Pricing — Lexena",
     "metaDescription": "Local free forever. Lexena Cloud for premium transcription and AI post-processing. No mandatory subscription.",
+    "pageTitle": "Pricing",
     "hero": {
       "eyebrow": "Pricing",
       "title": "Local free. Cloud à la carte.",
@@ -433,6 +435,7 @@
   "download": {
     "metaTitle": "Download — Lexena",
     "metaDescription": "Lexena for Windows: NSIS recommended, MSI for enterprise deployment, portable build. Install in under two minutes.",
+    "pageTitle": "Download",
     "hero": {
       "eyebrow": "Download",
       "title": "Download Lexena.",
@@ -511,6 +514,7 @@
     "privacy": {
       "metaTitle": "Privacy — Lexena",
       "metaDescription": "Lexena privacy policy: what is collected, where it lives, and how we treat your audio and notes.",
+      "pageTitle": "Privacy",
       "title": "Privacy",
       "lastUpdated": "Last updated: 2026-05-03",
       "draftWarning": "Draft document. Will be reviewed by legal counsel before Lexena's public release.",
@@ -536,6 +540,7 @@
     "terms": {
       "metaTitle": "Terms — Lexena",
       "metaDescription": "Lexena terms of use: license, ownership, liability limits, jurisdiction.",
+      "pageTitle": "Terms",
       "title": "Terms of use",
       "lastUpdated": "Last updated: 2026-05-03",
       "draftWarning": "Draft document. Will be reviewed by legal counsel before Lexena's public release.",

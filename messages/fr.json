@@ -193,6 +193,7 @@
   "features": {
     "metaTitle": "Fonctionnalités — Lexena",
     "metaDescription": "Inventaire complet : dictée, transcription locale ou cloud, post-process IA, notes interconnectées, profils, sync, expérience système.",
+    "pageTitle": "Fonctionnalités",
     "hero": {
       "eyebrow": "Inventaire",
       "title": "Tout ce que fait Lexena.",
@@ -347,6 +348,7 @@
   "pricing": {
     "metaTitle": "Tarifs — Lexena",
     "metaDescription": "Local gratuit pour toujours. Lexena Cloud pour la transcription et le post-process IA premium. Pas d'abonnement obligatoire.",
+    "pageTitle": "Tarifs",
     "hero": {
       "eyebrow": "Tarifs",
       "title": "Local gratuit. Cloud à la carte.",
@@ -433,6 +435,7 @@
   "download": {
     "metaTitle": "Télécharger — Lexena",
     "metaDescription": "Lexena pour Windows : NSIS recommandé, MSI pour les déploiements entreprise, version portable. Installation en moins de deux minutes.",
+    "pageTitle": "Télécharger",
     "hero": {
       "eyebrow": "Téléchargement",
       "title": "Télécharger Lexena.",
@@ -511,6 +514,7 @@
     "privacy": {
       "metaTitle": "Confidentialité — Lexena",
       "metaDescription": "Politique de confidentialité Lexena : ce qui est collecté, où c'est stocké, et comment nous traitons vos audios et notes.",
+      "pageTitle": "Confidentialité",
       "title": "Confidentialité",
       "lastUpdated": "Dernière mise à jour : 2026-05-03",
       "draftWarning": "Document préparatoire. Sera revu par un cabinet juridique avant la sortie publique de Lexena.",
@@ -536,6 +540,7 @@
     "terms": {
       "metaTitle": "Conditions — Lexena",
       "metaDescription": "Conditions d'utilisation de Lexena : licence, propriété, limites de responsabilité, juridiction.",
+      "pageTitle": "Conditions",
       "title": "Conditions d'utilisation",
       "lastUpdated": "Dernière mise à jour : 2026-05-03",
       "draftWarning": "Document préparatoire. Sera revu par un cabinet juridique avant la sortie publique de Lexena.",
