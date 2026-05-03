@@ -1,15 +1,10 @@
 import type { Metadata } from "next"
-import type { NamespaceKeys, NestedKeyOf } from "next-intl"
 import { getTranslations } from "next-intl/server"
 import { siteConfig, type Locale } from "./site-config"
-import type messages from "../messages/en.json"
-
-type Messages = typeof messages
-type Namespace = NamespaceKeys<Messages, NestedKeyOf<Messages>>
 
 interface BuildMetadataOptions {
   /** i18n namespace containing `metaTitle` and `metaDescription` keys. */
-  namespace: Namespace
+  namespace: string
   /** Path under the locale (e.g. "/features"). Use "/" for the home. */
   path: string
   locale: Locale
@@ -24,7 +19,8 @@ export async function buildMetadata({
 
   const title = t("metaTitle")
   const description = t("metaDescription")
-  const localizedPath = locale === siteConfig.defaultLocale ? path : `/${locale}${path}`
+  const localizedPath =
+    locale === siteConfig.defaultLocale ? path : `/${locale}${path}`
   const canonical = `${siteConfig.url}${localizedPath}`
 
   const languages: Record<string, string> = {}
@@ -33,6 +29,7 @@ export async function buildMetadata({
       altLocale === siteConfig.defaultLocale ? path : `/${altLocale}${path}`
     languages[altLocale] = `${siteConfig.url}${altPath}`
   }
+  languages["x-default"] = `${siteConfig.url}${path}`
 
   return {
     metadataBase: new URL(siteConfig.url),

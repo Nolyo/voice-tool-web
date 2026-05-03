@@ -1,133 +1,566 @@
 {
-  "home": {
-    "metaTitle": "Voice Tool — Voice transcription, anywhere, instantly",
-    "metaDescription": "Transform your voice into text instantly. Local GPU transcription, AI post-processing, connected notes. Free forever for local use."
+  "common": {
+    "downloadCta": "Download",
+    "downloadFreeCta": "Download for Windows",
+    "viewOnGithub": "View on GitHub",
+    "openGithub": "GitHub",
+    "tbd": "TBD",
+    "comingSoon": "soon",
+    "freeForever": "free",
+    "currentVersion": "Public beta"
   },
-  "hero": {
-    "badge": "Coming soon",
-    "title": "Voice transcription",
-    "titleHighlight": "in real-time",
-    "description": "Transform your voice into text instantly with AI. Audio recording, real-time visualization and automatic transcription powered by OpenAI Whisper.",
-    "ctaDownload": "Download",
-    "ctaDemo": "View demo",
-    "feature1": "Instant transcription",
-    "feature2": "Free and open source",
-    "feature3": "Windows compatible"
-  },
-  "cta": {
-    "title": "Ready to try Voice Tool?",
-    "description": "Download for free and start transcribing your voice recordings with artificial intelligence.",
-    "ctaPrimary": "Download for free",
-    "ctaSecondary": "View on GitHub"
-  },
-  "features": {
-    "heading": "Everything you need",
-    "subheading": "A complete application to transform your voice into text with artificial intelligence and advanced features.",
-    "items": [
-      {
-        "title": "AI Transcription",
-        "description": "Accurate and fast voice transcription powered by OpenAI Whisper. Multi-language support with automatic detection."
-      },
-      {
-        "title": "Audio Visualization",
-        "description": "Real-time audio level visualization with floating mini window and animated visual indicators."
-      },
-      {
-        "title": "Global Shortcuts",
-        "description": "Control recording from anywhere with customizable keyboard shortcuts (toggle, push-to-talk)."
-      },
-      {
-        "title": "Auto-paste",
-        "description": "Automatically paste transcribed text into the active window for an ultra-fast workflow."
-      },
-      {
-        "title": "Complete History",
-        "description": "Access all your past transcriptions with audio playback and integrated history management."
-      },
-      {
-        "title": "Modern Interface",
-        "description": "Tauri desktop application with elegant React interface, system tray and multi-window support."
-      }
-    ]
-  },
-  "header": {
-    "nav": {
-      "features": "Features",
-      "download": "Download",
-      "github": "GitHub"
-    },
-    "cta": "Download"
+  "nav": {
+    "features": "Features",
+    "pricing": "Pricing",
+    "download": "Download",
+    "github": "GitHub",
+    "languageLabel": "Language",
+    "skipToContent": "Skip to content"
   },
   "footer": {
-    "description": "Real-time voice transcription desktop application with artificial intelligence.",
+    "tagline": "Dictate fast. Write well. Stay in flow.",
     "product": {
       "title": "Product",
       "features": "Features",
+      "pricing": "Pricing",
       "download": "Download",
-      "changelog": "Changelog"
+      "changelog": "Release notes"
     },
     "resources": {
       "title": "Resources",
-      "github": "GitHub",
-      "support": "Support"
+      "github": "Source code",
+      "issues": "Report a bug",
+      "releases": "Releases"
     },
     "legal": {
       "title": "Legal",
-      "license": "License",
+      "license": "MIT License",
       "privacy": "Privacy",
       "terms": "Terms"
     },
-    "copyright": "© 2025 Voice Tool. All rights reserved."
+    "copyright": "© 2026 Lexena. Open source, MIT licensed.",
+    "buildNote": "Built with Tauri 2 · React 19 · Rust"
+  },
+  "home": {
+    "metaTitle": "Lexena — Voice dictation for Windows",
+    "metaDescription": "Hold a key, speak, the text appears in any application. Local Whisper on GPU, AI post-processing, notes and profiles. Public beta.",
+    "hero": {
+      "eyebrow": "v3.0 · public beta",
+      "titleLead": "Speak.",
+      "titleAccent": "Lexena writes.",
+      "subhead": "Hold your shortcut, speak out loud, the text appears exactly where your cursor is. Local or cloud — your call.",
+      "factA": "Local on GPU",
+      "factB": "Open source",
+      "factC": "Windows",
+      "ctaPrimary": "Download for Windows",
+      "ctaSecondary": "See features",
+      "demoCaption": "Live preview — dictation typing into a notes window",
+      "demoTargetLabel": "Target window",
+      "demoMicLabel": "Hold F8 to speak",
+      "demoStatusIdle": "Ready",
+      "demoStatusRec": "Recording…",
+      "demoStatusDone": "Pasted · 38 words · 12s",
+      "phrases": [
+        "Hi Marc, following up on our last meeting and the next steps.",
+        "Tomorrow: call the client at 2pm, finalize the mockup, ship.",
+        "function calculateTotal(items) { return items.reduce((s, i) => s + i.price, 0); }",
+        "Article idea: how voice dictation changes the way I write."
+      ]
+    },
+    "steps": {
+      "eyebrow": "How it works",
+      "heading": "Three gestures. No friction.",
+      "subhead": "No editor to open. No window to focus. Lexena lives in your tray and types into whatever you're already looking at.",
+      "items": [
+        {
+          "kicker": "1",
+          "title": "You press the key.",
+          "body": "Customizable global shortcut. Toggle, push-to-talk, or both. Works everywhere — Word, Slack, VS Code, browser, terminal."
+        },
+        {
+          "kicker": "2",
+          "title": "You speak.",
+          "body": "A floating mini-window shows the audio level and timer in real time. AI post-processing is opt-in and toggleable per dictation."
+        },
+        {
+          "kicker": "3",
+          "title": "The text appears.",
+          "body": "Auto-pasted into the active app instantly. A copy is kept in history with replayable audio — never without your permission."
+        }
+      ]
+    },
+    "personas": {
+      "eyebrow": "For whom",
+      "heading": "Three usages, one app.",
+      "items": [
+        {
+          "tag": "Write fast",
+          "title": "Email, reports, drafts.",
+          "body": "You speak faster than you type. Lexena reframes on the fly if you want — pro tone, email tone, bullet list, summary.",
+          "footnote": "Made for writers, freelancers, consultants."
+        },
+        {
+          "tag": "Tech & code",
+          "title": "Pull requests, tickets, snippets.",
+          "body": "Local Whisper on GPU so nothing leaves your machine. Configurable hotkeys, personal dictionary, snippet expansion for the acronyms no model recognizes.",
+          "footnote": "Built for devs and power users."
+        },
+        {
+          "tag": "Second brain",
+          "title": "Connected notes.",
+          "body": "Rich TipTap editor, @ backlinks, task lists, code blocks. Watertight Personal/Work profiles. Voice-captured thoughts, keyboard-organized.",
+          "footnote": "For researchers, journalists, the curious."
+        }
+      ]
+    },
+    "flagship": {
+      "eyebrow": "What changes",
+      "heading": "Four things that make a difference.",
+      "subhead": "Lexena isn't just a transcriber. Here's what makes daily use actually work.",
+      "items": {
+        "local": {
+          "eyebrow": "Local · Whisper",
+          "title": "Everything stays on your machine, if you want.",
+          "body": "GPU-accelerated whisper.cpp (Vulkan) with CPU fallback. No connection required. No data leaves. No per-minute cost.",
+          "factA": "$0",
+          "factB": "0 ms network",
+          "factC": "0 leak"
+        },
+        "ai": {
+          "eyebrow": "Post-process · AI",
+          "title": "Reframed without becoming unreadable.",
+          "body": "Ready-made modes: auto, email, formal, casual, bullet list, summary, grammar fix. Pick one per dictation. Original text always available.",
+          "factA": "Auto · Email · Formal",
+          "factB": "Casual · List · Summary",
+          "factC": "Raw kept"
+        },
+        "notes": {
+          "eyebrow": "Notes · TipTap",
+          "title": "Your transcriptions become notes.",
+          "body": "Full rich editor: headings, code blocks, tables, tasks, images. @ backlinks between notes. Full-text search. Synced across devices, free.",
+          "factA": "@ backlinks",
+          "factB": "Tasks",
+          "factC": "Free sync"
+        },
+        "profiles": {
+          "eyebrow": "Profiles · Personal & Work",
+          "title": "A separate life per context.",
+          "body": "Each profile has its own notes, history, hotkeys, dictionary. Instant switching. No leak from one context to another.",
+          "factA": "Watertight notes",
+          "factB": "Own hotkeys",
+          "factC": "Switch in 1 click"
+        }
+      },
+      "ctaLabel": "See all features →"
+    },
+    "localCloud": {
+      "eyebrow": "Local or cloud",
+      "heading": "Both modes. No dogma.",
+      "subhead": "We don't push you toward either. Pick per dictation, or let auto-mode decide based on context.",
+      "local": {
+        "tag": "Local",
+        "title": "Whisper on your GPU.",
+        "items": [
+          "Fully offline — no data leaves the machine.",
+          "Vulkan (AMD/NVIDIA/Intel GPU) with CPU fallback.",
+          "Multilingual large model bundled.",
+          "~0.3s latency on a recent GPU."
+        ],
+        "price": "Free forever"
+      },
+      "cloud": {
+        "tag": "Cloud · Pro",
+        "title": "Lexena Cloud.",
+        "items": [
+          "Lexena's cloud transcription, more accurate on tough audio.",
+          "Premium AI post-processing — extended modes.",
+          "Same data ethics: nothing stored server-side.",
+          "~0.8s latency, hardware-independent."
+        ],
+        "price": "TBD",
+        "priceMeta": "Final pricing announced at v3.0 public launch"
+      },
+      "ctaLabel": "Compare in detail →"
+    },
+    "finalCta": {
+      "eyebrow": "Get started",
+      "title": "Ready to try?",
+      "subhead": "Public beta available. Windows 10 or higher. Account creation in-app only — never on this site.",
+      "ctaPrimary": "Download for Windows",
+      "ctaSecondary": "View source code"
+    }
+  },
+  "features": {
+    "metaTitle": "Features — Lexena",
+    "metaDescription": "Full inventory: dictation, local or cloud transcription, AI post-processing, connected notes, profiles, sync, system experience.",
+    "hero": {
+      "eyebrow": "Inventory",
+      "title": "Everything Lexena does.",
+      "subhead": "Without padding. Each feature listed ships in the current version."
+    },
+    "nav": {
+      "recording": "Dictation & transcription",
+      "ai": "AI post-process",
+      "notes": "Notes & second brain",
+      "profiles": "Profiles",
+      "sync": "Account & sync",
+      "system": "System & UX"
+    },
+    "recording": {
+      "title": "Dictation & transcription",
+      "items": [
+        {
+          "title": "Global shortcuts",
+          "body": "Toggle (Ctrl+Alt+Space by default), push-to-talk (F8), cancel (Esc). Fully remappable, conflicts detected."
+        },
+        {
+          "title": "Local Whisper transcription",
+          "body": "whisper.cpp with Vulkan acceleration on most recent GPUs. Multilingual model bundled. No connection required."
+        },
+        {
+          "title": "Lexena Cloud transcription",
+          "body": "Premium transcription service operated by Lexena. More accurate on tough audio. No server-side audio storage — everything comes back local."
+        },
+        {
+          "title": "Silence detection",
+          "body": "Automatic stop at end of dictation when you go quiet. Toggle off for long pauses."
+        },
+        {
+          "title": "Floating mini-window",
+          "body": "Always-on-top frameless HUD with live audio level, timer, and quick post-process / translate toggles."
+        },
+        {
+          "title": "Translation mode",
+          "body": "Dictate in any language, output in English. Toggleable per dictation."
+        }
+      ]
+    },
+    "ai": {
+      "title": "AI post-process",
+      "items": [
+        {
+          "title": "Ready-made modes",
+          "body": "Auto, email, formal, casual, bullet list, short summary, grammar fix. Picked per dictation."
+        },
+        {
+          "title": "Custom mode",
+          "body": "Define your own system prompt. Saved per profile."
+        },
+        {
+          "title": "Original text kept",
+          "body": "Raw and reframed visible side-by-side in history. You keep the trace."
+        },
+        {
+          "title": "Cost visible",
+          "body": "Exact cost shown per dictation. No surprise at the end of the month."
+        }
+      ]
+    },
+    "notes": {
+      "title": "Notes & second brain",
+      "items": [
+        {
+          "title": "Rich TipTap editor",
+          "body": "Headings, lists, tasks, code blocks, tables, images, quotes. Markdown under the hood."
+        },
+        {
+          "title": "@ backlinks",
+          "body": "Type @ to reference another note. Bidirectional links visible in the right panel."
+        },
+        {
+          "title": "Pinning",
+          "body": "Pin important transcriptions to keep them at the top of the timeline."
+        },
+        {
+          "title": "Full-text search",
+          "body": "Fuzzy search across everything — titles, content, transcriptions, snippets."
+        }
+      ]
+    },
+    "profiles": {
+      "title": "Personal & Work profiles",
+      "items": [
+        {
+          "title": "Watertight workspaces",
+          "body": "Notes, history, shortcuts, dictionaries: each profile is isolated. No leak across contexts."
+        },
+        {
+          "title": "Instant switching",
+          "body": "One shortcut or a click in the system tray. No restart."
+        },
+        {
+          "title": "Per-profile hotkeys",
+          "body": "The same shortcut can do different things depending on the active profile."
+        }
+      ]
+    },
+    "sync": {
+      "title": "Account & sync",
+      "items": [
+        {
+          "title": "In-app sign up",
+          "body": "Account is created inside Lexena, not on this site. TOTP 2FA, one-click account deletion."
+        },
+        {
+          "title": "Free notes sync",
+          "body": "Your notes, dictionaries, and preferences synced across devices. Included, no subscription."
+        },
+        {
+          "title": "Multi-device",
+          "body": "Connect as many Windows machines as you want with a single account."
+        },
+        {
+          "title": "100% offline mode",
+          "body": "The account is optional. Lexena works fully without signing up."
+        }
+      ]
+    },
+    "system": {
+      "title": "System & UX",
+      "items": [
+        {
+          "title": "System tray",
+          "body": "Lexena lives in the Windows tray. Optional auto-start at login."
+        },
+        {
+          "title": "Light & dark themes",
+          "body": "Dark by default. Manual toggle or system follow."
+        },
+        {
+          "title": "Bilingual EN / FR",
+          "body": "Full UI in both languages. Hot-swap any time."
+        },
+        {
+          "title": "Signed updates",
+          "body": "Cryptographically signed auto-update. Release notes visible before installing."
+        },
+        {
+          "title": "Deep links",
+          "body": "lexena:// — from any app, open a note, start a dictation, run a command."
+        }
+      ]
+    },
+    "ctaTitle": "Convinced?",
+    "ctaBody": "Direct download. No account creation on the website.",
+    "ctaButton": "Download for Windows"
+  },
+  "pricing": {
+    "metaTitle": "Pricing — Lexena",
+    "metaDescription": "Local free forever. Lexena Cloud for premium transcription and AI post-processing. No mandatory subscription.",
+    "hero": {
+      "eyebrow": "Pricing",
+      "title": "Local free. Cloud à la carte.",
+      "subhead": "Lexena works fully free, offline. Cloud mode is a premium option operated by Lexena."
+    },
+    "plans": {
+      "free": {
+        "tag": "Free · forever",
+        "name": "Local",
+        "price": "$0",
+        "priceMeta": "No commitment, no account required",
+        "summary": "Everything you need to dictate, take notes, and organize your thinking.",
+        "items": [
+          "Local Whisper (GPU or CPU)",
+          "Full notes with backlinks",
+          "Unlimited Personal & Work profiles",
+          "Personal dictionary & snippets",
+          "Notes sync included",
+          "Optional account (2FA)",
+          "Signed updates for life"
+        ],
+        "cta": "Download for Windows"
+      },
+      "pro": {
+        "tag": "Premium",
+        "name": "Lexena Cloud",
+        "price": "TBD",
+        "priceMeta": "Pricing published at v3.0 public release",
+        "summary": "For those whose hardware can't keep up, or who want the most accurate transcription.",
+        "items": [
+          "Lexena cloud transcription",
+          "Premium AI post-process (extended modes)",
+          "Latency independent of local hardware",
+          "Includes everything in Local",
+          "No server-side audio storage",
+          "No commitment, cancel in 1 click"
+        ],
+        "cta": "Get notified at launch",
+        "ctaNote": "Cloud sign-up happens in-app, never on this site."
+      }
+    },
+    "compareTitle": "Side-by-side comparison",
+    "compareNote": "Detailed table for the undecided.",
+    "rows": [
+      { "label": "Voice dictation + auto-paste", "free": true, "pro": true },
+      { "label": "Local Whisper (GPU/CPU)", "free": true, "pro": true },
+      { "label": "Lexena Cloud transcription", "free": false, "pro": true },
+      { "label": "AI post-process — basic modes", "free": false, "pro": true },
+      { "label": "AI post-process — extended modes", "free": false, "pro": true },
+      { "label": "Notes & backlinks", "free": true, "pro": true },
+      { "label": "Personal & Work profiles", "free": true, "pro": true },
+      { "label": "Notes sync", "free": true, "pro": true },
+      { "label": "Global hotkeys", "free": true, "pro": true },
+      { "label": "Signed updates", "free": true, "pro": true }
+    ],
+    "rowYes": "Included",
+    "rowNo": "—",
+    "faq": {
+      "title": "Common questions",
+      "items": [
+        {
+          "q": "Do I need an account to use Lexena?",
+          "a": "No. Lexena works entirely without an account. Sign-up is only needed if you want to sync your notes across multiple devices, and it happens in-app."
+        },
+        {
+          "q": "Are my audios sent to third-party servers?",
+          "a": "In local mode, never. In Lexena Cloud mode, audio is processed by our infrastructure and erased immediately after transcription. We do not store any audio server-side."
+        },
+        {
+          "q": "What about the old OpenAI / Groq / Deepgram API keys?",
+          "a": "BYO API keys are being phased out for the public v3.0 release, replaced by Lexena Cloud. Users on previous versions will be guided through the migration."
+        },
+        {
+          "q": "Is the code open source?",
+          "a": "Yes, MIT licensed. The desktop app source is fully public on GitHub. Lexena Cloud is a paid hosted service, separate."
+        },
+        {
+          "q": "When is the public release?",
+          "a": "Lexena is in public beta. The v3.0 public launch is gated on Lexena Cloud and notes sync going to production."
+        }
+      ]
+    }
   },
   "download": {
+    "metaTitle": "Download — Lexena",
+    "metaDescription": "Lexena for Windows: NSIS recommended, MSI for enterprise deployment, portable build. Install in under two minutes.",
     "hero": {
-      "title": "Download Voice Tool",
-      "description": "Voice transcription desktop application. Windows only."
+      "eyebrow": "Download",
+      "title": "Download Lexena.",
+      "description": "Windows 10 or higher. Current version listed below. No account, no signup.",
+      "factA": "Install in < 2 min",
+      "factB": "No account required",
+      "factC": "Auto-updates"
     },
-    "windows": {
-      "title": "Windows",
-      "requirement": "Windows 10 or higher",
-      "installers": {
-        "nsis": "NSIS Installer",
-        "msi": "MSI Installer",
-        "portable": "Portable version"
-      }
-    },
-    "linux": {
-      "title": "Linux",
-      "requirement": "Modern Linux distribution",
-      "installers": {
-        "deb": "DEB Package",
-        "rpm": "RPM Package",
-        "appimage": "AppImage",
-        "tarball": "TAR.GZ Archive"
-      }
-    },
-    "macos": {
-      "title": "macOS",
-      "requirement": "macOS 11 or higher",
-      "installers": {
-        "dmg": "DMG Disk Image",
-        "app": ".app Application"
+    "platforms": {
+      "windows": {
+        "title": "Windows",
+        "requirement": "Windows 10 or higher · x64",
+        "installers": {
+          "nsis": "NSIS installer",
+          "nsisHint": "Recommended for most users",
+          "msi": "MSI installer",
+          "msiHint": "For enterprise deployment",
+          "portable": "Portable build",
+          "portableHint": "No installer, doesn't touch the registry"
+        }
+      },
+      "linux": {
+        "title": "Linux",
+        "requirement": "Modern distribution — coming soon",
+        "installers": {
+          "deb": "DEB package",
+          "rpm": "RPM package",
+          "appimage": "AppImage",
+          "tarball": "TAR.GZ archive"
+        }
+      },
+      "macos": {
+        "title": "macOS",
+        "requirement": "macOS 11 or higher — coming soon",
+        "installers": {
+          "dmg": "DMG disk image",
+          "app": ".app application"
+        }
       }
     },
     "installation": {
-      "title": "Installation instructions",
+      "title": "After installing",
       "step1": {
-        "title": "Download the installer",
-        "description": "Choose between NSIS installer (recommended), MSI or portable version"
+        "title": "Launch Lexena.",
+        "description": "An icon appears in your Windows tray. The global shortcut Ctrl + Alt + Space is active by default."
       },
       "step2": {
-        "title": "Run the installation",
-        "description": "Open the downloaded file and follow the on-screen instructions"
+        "title": "Pick your mode.",
+        "description": "Local Whisper (free, offline) or Lexena Cloud (premium, more accurate). Switch in settings or per dictation."
       },
       "step3": {
-        "title": "Configure your API key",
-        "description": "Add your OpenAI Whisper API key in settings to enable transcription"
+        "title": "Sign in (optional).",
+        "description": "Account creation is optional. It only helps sync your notes across multiple devices."
       }
     },
-    "button": "Download",
-    "loading": "Loading...",
-    "error": "Unable to load versions"
+    "buttons": {
+      "download": "Download",
+      "copySha": "Copy SHA256",
+      "shaCopied": "SHA256 copied",
+      "showPrevious": "Previous versions",
+      "hidePrevious": "Hide previous versions",
+      "openReleases": "All versions on GitHub →"
+    },
+    "loading": "Loading versions…",
+    "error": {
+      "title": "Couldn't load versions",
+      "body": "GitHub may be temporarily unavailable. You can browse all releases directly on GitHub.",
+      "ctaLabel": "View releases on GitHub"
+    },
+    "fallback": {
+      "title": "No release published yet",
+      "body": "No version listed yet. Watch the project on GitHub to be notified of the first public release."
+    }
+  },
+  "legal": {
+    "privacy": {
+      "metaTitle": "Privacy — Lexena",
+      "metaDescription": "Lexena privacy policy: what is collected, where it lives, and how we treat your audio and notes.",
+      "title": "Privacy",
+      "lastUpdated": "Last updated: 2026-05-03",
+      "draftWarning": "Draft document. Will be reviewed by legal counsel before Lexena's public release.",
+      "sections": [
+        {
+          "title": "What Lexena collects",
+          "body": "In 100% local mode: nothing. In cloud mode with an account: email, hashed password, sync metadata. Audio is never stored server-side."
+        },
+        {
+          "title": "Where it lives",
+          "body": "Notes and preferences: Supabase (European Union). Audio in transit for cloud transcription: erased after processing, never stored."
+        },
+        {
+          "title": "Your rights",
+          "body": "One-click account deletion in-app. Full notes export. GDPR requests: contact@lexena.[domain] (TBD)."
+        },
+        {
+          "title": "Cookies & analytics",
+          "body": "The marketing site uses Plausible (cookieless, GDPR-compliant without a banner). The desktop app sends no telemetry."
+        }
+      ]
+    },
+    "terms": {
+      "metaTitle": "Terms — Lexena",
+      "metaDescription": "Lexena terms of use: license, ownership, liability limits, jurisdiction.",
+      "title": "Terms of use",
+      "lastUpdated": "Last updated: 2026-05-03",
+      "draftWarning": "Draft document. Will be reviewed by legal counsel before Lexena's public release.",
+      "sections": [
+        {
+          "title": "Software license",
+          "body": "Lexena Desktop is distributed under the MIT License. Source available on GitHub. Lexena Cloud is a hosted service governed by these terms."
+        },
+        {
+          "title": "Ownership of your data",
+          "body": "Your notes, transcriptions, dictionaries, and snippets belong to you. Lexena claims no rights on the content you produce."
+        },
+        {
+          "title": "Acceptable use",
+          "body": "Lexena must not be used to transcribe conversations without participants' consent. Compliance with local audio recording laws is the user's responsibility."
+        },
+        {
+          "title": "Liability limits",
+          "body": "Lexena is provided \"as is\". No guarantee of cloud service availability. No liability for data loss — export your notes regularly."
+        },
+        {
+          "title": "Jurisdiction",
+          "body": "TBD before public release. Likely French law."
+        }
+      ]
+    }
   }
 }
