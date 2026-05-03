@@ -1,4 +1,11 @@
 {
+  "notFound": {
+    "code": "404",
+    "title": "Page introuvable",
+    "body": "Nous n'avons pas trouvé la page que vous cherchiez. Elle a peut-être été déplacée, ou n'a jamais existé.",
+    "primaryCta": "Retour à l'accueil",
+    "secondaryCta": "Voir les fonctionnalités"
+  },
   "common": {
     "downloadCta": "Télécharger",
     "downloadFreeCta": "Télécharger pour Windows",

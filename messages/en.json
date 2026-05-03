@@ -9,6 +9,13 @@
     "freeForever": "free",
     "currentVersion": "Public beta"
   },
+  "notFound": {
+    "code": "404",
+    "title": "Page not found",
+    "body": "We could not find the page you were looking for. It may have moved, or never existed.",
+    "primaryCta": "Back to home",
+    "secondaryCta": "Browse features"
+  },
   "nav": {
     "features": "Features",
     "pricing": "Pricing",
