@@ -22,7 +22,10 @@
     "download": "Download",
     "github": "GitHub",
     "languageLabel": "Language",
-    "skipToContent": "Skip to content"
+    "skipToContent": "Skip to content",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "menuTitle": "Navigation"
   },
   "footer": {
     "tagline": "Dictate fast. Write well. Stay in flow.",

@@ -22,7 +22,10 @@
     "download": "Télécharger",
     "github": "GitHub",
     "languageLabel": "Langue",
-    "skipToContent": "Aller au contenu"
+    "skipToContent": "Aller au contenu",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "menuTitle": "Navigation"
   },
   "footer": {
     "tagline": "Dictez vite. Écrivez bien. Concentrez-vous.",

@@ -40,3 +40,33 @@ for (const path of HOME_ROUTES) {
     expect(parsed.offers?.price).toBe("0")
   })
 }
+
+test.describe("mobile menu", () => {
+  test.use({ viewport: { width: 390, height: 844 }, isMobile: true })
+
+  test("opens, navigates, and closes via Escape", async ({ page }) => {
+    await page.goto("/")
+    await page.waitForLoadState("networkidle")
+
+    const menu = page.locator('[role="dialog"][aria-label*="Navigation"]')
+    await expect(menu).toHaveAttribute("aria-hidden", "true")
+
+    await page.getByRole("button", { name: /open menu/i }).click()
+    await expect(menu).toHaveAttribute("aria-hidden", "false")
+
+    // Drawer panel must cover full viewport height (regression: a parent
+    // backdrop-filter creates a containing block that clips position:fixed
+    // children — the menu is portaled to body to escape it).
+    const panel = menu.locator("> div:nth-child(2)")
+    await page.waitForTimeout(300)
+    const panelRect = await panel.boundingBox()
+    expect(panelRect?.height ?? 0).toBeGreaterThan(700)
+
+    await page.keyboard.press("Escape")
+    await expect(menu).toHaveAttribute("aria-hidden", "true")
+
+    await page.getByRole("button", { name: /open menu/i }).click()
+    await menu.getByRole("link", { name: /^Features$/i }).click()
+    await expect(page).toHaveURL(/\/features$/)
+  })
+})

@@ -1,11 +1,13 @@
 "use client"
 
 import Image from "next/image"
+import { useEffect, useId, useRef, useState } from "react"
+import { createPortal } from "react-dom"
 import { Button } from "@/components/ui/button"
 import { useTranslations } from "next-intl"
 import { Link, usePathname, useRouter } from "@/i18n/routing"
 import { useLocale } from "next-intl"
-import { Github } from "lucide-react"
+import { Github, Menu, X } from "lucide-react"
 import { siteConfig } from "@/lib/site-config"
 import { cn } from "@/lib/utils"
 
@@ -15,6 +17,8 @@ export function Header() {
   const locale = useLocale()
   const pathname = usePathname()
   const router = useRouter()
+  const [menuOpen, setMenuOpen] = useState(false)
+  const menuId = useId()
 
   return (
     <header
@@ -90,7 +94,7 @@ export function Header() {
           <Button
             asChild
             size="sm"
-            className="h-8 rounded-[10px] px-3.5 text-[12.5px] font-medium"
+            className="hidden sm:inline-flex h-8 rounded-[10px] px-3.5 text-[12.5px] font-medium"
             style={{
               background: "var(--vt-accent)",
               color: "white",
@@ -100,8 +104,29 @@ export function Header() {
           >
             <Link href="/download">{t("download")}</Link>
           </Button>
+          <button
+            type="button"
+            className="md:hidden inline-flex h-9 w-9 items-center justify-center rounded-md border border-[var(--vt-border)] text-[var(--vt-fg-2)] hover:bg-[var(--vt-hover)] hover:text-[var(--vt-fg)] transition-colors"
+            aria-label={t("openMenu")}
+            aria-controls={menuId}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen(true)}
+          >
+            <Menu className="h-5 w-5" aria-hidden />
+          </button>
         </div>
       </div>
+
+      <MobileMenu
+        id={menuId}
+        open={menuOpen}
+        onClose={() => setMenuOpen(false)}
+        currentLocale={locale}
+        onLocaleSwitch={(l) => {
+          router.replace(pathname || "/", { locale: l as "en" | "fr" })
+          setMenuOpen(false)
+        }}
+      />
     </header>
   )
 }
@@ -153,5 +178,171 @@ function LocaleSwitcher({
         </button>
       ))}
     </div>
+  )
+}
+
+interface MobileMenuProps {
+  id: string
+  open: boolean
+  onClose: () => void
+  currentLocale: string
+  onLocaleSwitch: (l: string) => void
+}
+
+function MobileMenu({
+  id,
+  open,
+  onClose,
+  currentLocale,
+  onLocaleSwitch,
+}: MobileMenuProps) {
+  const t = useTranslations("nav")
+  const closeRef = useRef<HTMLButtonElement>(null)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (!open) return
+    closeRef.current?.focus()
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose()
+    }
+    document.addEventListener("keydown", onKey)
+    document.body.style.overflow = "hidden"
+    return () => {
+      document.removeEventListener("keydown", onKey)
+      document.body.style.overflow = ""
+    }
+  }, [open, onClose])
+
+  if (!mounted) return null
+
+  // Rendered into document.body to escape the header's containing block
+  // (the header's backdrop-filter would otherwise clip a position:fixed child).
+  return createPortal(
+    <div
+      id={id}
+      role="dialog"
+      aria-modal="true"
+      aria-label={t("menuTitle")}
+      aria-hidden={!open}
+      className={cn(
+        "md:hidden transition-opacity duration-200",
+        open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",
+      )}
+      style={{
+        position: "fixed",
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
+        zIndex: 60,
+      }}
+    >
+      <button
+        type="button"
+        aria-label={t("closeMenu")}
+        tabIndex={open ? 0 : -1}
+        onClick={onClose}
+        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+      />
+      <div
+        className={cn(
+          "absolute right-0 top-0 bottom-0 flex flex-col w-[min(86vw,360px)] border-l border-[var(--vt-border)] shadow-2xl transition-transform duration-200 vt-app",
+          open ? "translate-x-0" : "translate-x-full",
+        )}
+        style={{ background: "var(--vt-bg)" }}
+      >
+        <div className="flex h-[56px] items-center justify-between border-b border-[var(--vt-border)] px-5">
+          <span className="vt-display text-[15px] font-semibold text-[var(--vt-fg)]">
+            {t("menuTitle")}
+          </span>
+          <button
+            ref={closeRef}
+            type="button"
+            aria-label={t("closeMenu")}
+            onClick={onClose}
+            className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-[var(--vt-border)] text-[var(--vt-fg-2)] hover:bg-[var(--vt-hover)] hover:text-[var(--vt-fg)]"
+          >
+            <X className="h-5 w-5" aria-hidden />
+          </button>
+        </div>
+        <nav className="flex flex-col gap-1 p-4">
+          <MobileNavLink href="/features" onClose={onClose}>
+            {t("features")}
+          </MobileNavLink>
+          <MobileNavLink href="/pricing" onClose={onClose}>
+            {t("pricing")}
+          </MobileNavLink>
+          <MobileNavLink href="/download" onClose={onClose}>
+            {t("download")}
+          </MobileNavLink>
+          <a
+            href={siteConfig.githubRepo}
+            target="_blank"
+            rel="noopener noreferrer"
+            tabIndex={open ? 0 : -1}
+            className="flex items-center gap-2.5 rounded-md px-3 py-2.5 text-[15px] text-[var(--vt-fg-2)] hover:bg-[var(--vt-hover)] hover:text-[var(--vt-fg)]"
+            onClick={onClose}
+          >
+            <Github className="h-4 w-4" aria-hidden />
+            <span>{t("github")}</span>
+          </a>
+        </nav>
+
+        <div className="border-t border-[var(--vt-border)] p-4">
+          <div className="vt-mono mb-2 text-[10.5px] uppercase tracking-[0.08em] text-[var(--vt-fg-4)]">
+            {t("languageLabel")}
+          </div>
+          <div
+            className="inline-flex items-center rounded-full border border-[var(--vt-border)] p-[2px] vt-mono text-[11.5px]"
+            role="group"
+            aria-label={t("languageLabel")}
+          >
+            {(["fr", "en"] as const).map((l) => (
+              <button
+                key={l}
+                type="button"
+                tabIndex={open ? 0 : -1}
+                onClick={() => onLocaleSwitch(l)}
+                aria-pressed={currentLocale === l}
+                className={cn(
+                  "h-7 w-10 rounded-full transition-colors uppercase",
+                  currentLocale === l
+                    ? "bg-[var(--vt-surface-hi)] text-[var(--vt-fg)]"
+                    : "text-[var(--vt-fg-4)] hover:text-[var(--vt-fg-2)]",
+                )}
+              >
+                {l}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>,
+    document.body,
+  )
+}
+
+function MobileNavLink({
+  href,
+  children,
+  onClose,
+}: {
+  href: "/features" | "/pricing" | "/download"
+  children: React.ReactNode
+  onClose: () => void
+}) {
+  return (
+    <Link
+      href={href}
+      onClick={onClose}
+      className="rounded-md px-3 py-2.5 text-[15px] text-[var(--vt-fg-2)] hover:bg-[var(--vt-hover)] hover:text-[var(--vt-fg)]"
+    >
+      {children}
+    </Link>
   )
 }
