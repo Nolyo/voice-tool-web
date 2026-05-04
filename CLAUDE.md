@@ -36,6 +36,9 @@ pnpm start
 pnpm lint
 ```
 
+### Production
+- This app is online at [lexena.app](https://lexena.app)
+
 ## Architecture Notes
 
 ### Next.js App Router Structure
