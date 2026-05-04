@@ -44,6 +44,7 @@ export async function generateMetadata({
     namespace: "home",
     path: "/",
     locale: locale as Locale,
+    isLayoutDefault: true,
   })
 }
 

@@ -2,11 +2,17 @@
   "name": "voice-tool-web",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.30.3",
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/check-locale-parity.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "check:i18n": "node scripts/check-locale-parity.mjs",
     "test:e2e": "playwright test"
   },
   "dependencies": {
@@ -21,6 +27,7 @@
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.3",
     "@playwright/test": "^1.59.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",

@@ -24,7 +24,7 @@ export function FinalCta() {
               size="lg"
               className="h-11 rounded-[10px] px-5 text-[14px] font-medium gap-2"
               style={{
-                background: "var(--vt-accent)",
+                background: "var(--vt-accent-strong)",
                 color: "white",
                 borderColor: "oklch(from var(--vt-accent) l c h / 0.55)",
                 boxShadow: "var(--vt-shadow-primary-glow)",

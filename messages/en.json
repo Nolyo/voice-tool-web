@@ -9,13 +9,23 @@
     "freeForever": "free",
     "currentVersion": "Public beta"
   },
+  "notFound": {
+    "code": "404",
+    "title": "Page not found",
+    "body": "We could not find the page you were looking for. It may have moved, or never existed.",
+    "primaryCta": "Back to home",
+    "secondaryCta": "Browse features"
+  },
   "nav": {
     "features": "Features",
     "pricing": "Pricing",
     "download": "Download",
     "github": "GitHub",
     "languageLabel": "Language",
-    "skipToContent": "Skip to content"
+    "skipToContent": "Skip to content",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "menuTitle": "Navigation"
   },
   "footer": {
     "tagline": "Dictate fast. Write well. Stay in flow.",
@@ -44,6 +54,13 @@
   "home": {
     "metaTitle": "Lexena — Voice dictation for Windows",
     "metaDescription": "Hold a key, speak, the text appears in any application. Local Whisper on GPU, AI post-processing, notes and profiles. Public beta.",
+    "og": {
+      "subtitle": "Voice dictation · Windows",
+      "line1": "Speak.",
+      "line2": "Lexena writes.",
+      "factLocal": "Local on GPU",
+      "factOpenSource": "Open source · MIT"
+    },
     "hero": {
       "eyebrow": "v3.0 · public beta",
       "titleLead": "Speak.",
@@ -193,6 +210,7 @@
   "features": {
     "metaTitle": "Features — Lexena",
     "metaDescription": "Full inventory: dictation, local or cloud transcription, AI post-processing, connected notes, profiles, sync, system experience.",
+    "pageTitle": "Features",
     "hero": {
       "eyebrow": "Inventory",
       "title": "Everything Lexena does.",
@@ -347,6 +365,7 @@
   "pricing": {
     "metaTitle": "Pricing — Lexena",
     "metaDescription": "Local free forever. Lexena Cloud for premium transcription and AI post-processing. No mandatory subscription.",
+    "pageTitle": "Pricing",
     "hero": {
       "eyebrow": "Pricing",
       "title": "Local free. Cloud à la carte.",
@@ -433,6 +452,7 @@
   "download": {
     "metaTitle": "Download — Lexena",
     "metaDescription": "Lexena for Windows: NSIS recommended, MSI for enterprise deployment, portable build. Install in under two minutes.",
+    "pageTitle": "Download",
     "hero": {
       "eyebrow": "Download",
       "title": "Download Lexena.",
@@ -511,6 +531,7 @@
     "privacy": {
       "metaTitle": "Privacy — Lexena",
       "metaDescription": "Lexena privacy policy: what is collected, where it lives, and how we treat your audio and notes.",
+      "pageTitle": "Privacy",
       "title": "Privacy",
       "lastUpdated": "Last updated: 2026-05-03",
       "draftWarning": "Draft document. Will be reviewed by legal counsel before Lexena's public release.",
@@ -536,6 +557,7 @@
     "terms": {
       "metaTitle": "Terms — Lexena",
       "metaDescription": "Lexena terms of use: license, ownership, liability limits, jurisdiction.",
+      "pageTitle": "Terms",
       "title": "Terms of use",
       "lastUpdated": "Last updated: 2026-05-03",
       "draftWarning": "Draft document. Will be reviewed by legal counsel before Lexena's public release.",

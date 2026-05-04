@@ -1,4 +1,11 @@
 {
+  "notFound": {
+    "code": "404",
+    "title": "Page introuvable",
+    "body": "Nous n'avons pas trouvé la page que vous cherchiez. Elle a peut-être été déplacée, ou n'a jamais existé.",
+    "primaryCta": "Retour à l'accueil",
+    "secondaryCta": "Voir les fonctionnalités"
+  },
   "common": {
     "downloadCta": "Télécharger",
     "downloadFreeCta": "Télécharger pour Windows",
@@ -15,7 +22,10 @@
     "download": "Télécharger",
     "github": "GitHub",
     "languageLabel": "Langue",
-    "skipToContent": "Aller au contenu"
+    "skipToContent": "Aller au contenu",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "menuTitle": "Navigation"
   },
   "footer": {
     "tagline": "Dictez vite. Écrivez bien. Concentrez-vous.",
@@ -44,6 +54,13 @@
   "home": {
     "metaTitle": "Lexena — Dictée vocale pour Windows",
     "metaDescription": "Maintenez une touche, dictez, le texte apparaît dans n'importe quelle application. Whisper local sur GPU, post-process IA, notes et profils. Beta publique.",
+    "og": {
+      "subtitle": "Dictée vocale · Windows",
+      "line1": "Parlez.",
+      "line2": "Lexena écrit.",
+      "factLocal": "Local sur GPU",
+      "factOpenSource": "Open source · MIT"
+    },
     "hero": {
       "eyebrow": "v3.0 · Beta publique",
       "titleLead": "Parlez.",
@@ -193,6 +210,7 @@
   "features": {
     "metaTitle": "Fonctionnalités — Lexena",
     "metaDescription": "Inventaire complet : dictée, transcription locale ou cloud, post-process IA, notes interconnectées, profils, sync, expérience système.",
+    "pageTitle": "Fonctionnalités",
     "hero": {
       "eyebrow": "Inventaire",
       "title": "Tout ce que fait Lexena.",
@@ -347,6 +365,7 @@
   "pricing": {
     "metaTitle": "Tarifs — Lexena",
     "metaDescription": "Local gratuit pour toujours. Lexena Cloud pour la transcription et le post-process IA premium. Pas d'abonnement obligatoire.",
+    "pageTitle": "Tarifs",
     "hero": {
       "eyebrow": "Tarifs",
       "title": "Local gratuit. Cloud à la carte.",
@@ -433,6 +452,7 @@
   "download": {
     "metaTitle": "Télécharger — Lexena",
     "metaDescription": "Lexena pour Windows : NSIS recommandé, MSI pour les déploiements entreprise, version portable. Installation en moins de deux minutes.",
+    "pageTitle": "Télécharger",
     "hero": {
       "eyebrow": "Téléchargement",
       "title": "Télécharger Lexena.",
@@ -511,6 +531,7 @@
     "privacy": {
       "metaTitle": "Confidentialité — Lexena",
       "metaDescription": "Politique de confidentialité Lexena : ce qui est collecté, où c'est stocké, et comment nous traitons vos audios et notes.",
+      "pageTitle": "Confidentialité",
       "title": "Confidentialité",
       "lastUpdated": "Dernière mise à jour : 2026-05-03",
       "draftWarning": "Document préparatoire. Sera revu par un cabinet juridique avant la sortie publique de Lexena.",
@@ -536,6 +557,7 @@
     "terms": {
       "metaTitle": "Conditions — Lexena",
       "metaDescription": "Conditions d'utilisation de Lexena : licence, propriété, limites de responsabilité, juridiction.",
+      "pageTitle": "Conditions",
       "title": "Conditions d'utilisation",
       "lastUpdated": "Dernière mise à jour : 2026-05-03",
       "draftWarning": "Document préparatoire. Sera revu par un cabinet juridique avant la sortie publique de Lexena.",

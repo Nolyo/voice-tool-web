@@ -1,5 +1,3 @@
-"use client"
-
 type EventProps = Record<string, string | number | boolean>
 
 declare global {
