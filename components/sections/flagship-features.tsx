@@ -314,6 +314,8 @@ function ProfileRow({
   active: boolean
 }) {
   const colorVar = tone === "warn" ? "--vt-warn" : "--vt-accent"
+  // Brighter foreground for text-on-soft-tint to clear WCAG AA.
+  const fgVar = tone === "warn" ? "--vt-warn" : "--vt-accent-2"
   return (
     <div
       className="flex items-center gap-3 rounded-[10px] border p-4 transition-colors"
@@ -333,7 +335,7 @@ function ProfileRow({
         className="grid h-9 w-9 place-items-center rounded-[10px] vt-mono text-[12px] font-semibold"
         style={{
           background: `oklch(from var(${colorVar}) l c h / 0.16)`,
-          color: `var(${colorVar})`,
+          color: `var(${fgVar})`,
           border: `1px solid oklch(from var(${colorVar}) l c h / 0.4)`,
         }}
       >
@@ -352,7 +354,7 @@ function ProfileRow({
           className="vt-mono inline-flex items-center gap-1.5 rounded-full border px-2 py-[2px] text-[10px]"
           style={{
             background: `oklch(from var(${colorVar}) l c h / 0.16)`,
-            color: `var(${colorVar})`,
+            color: `var(${fgVar})`,
             borderColor: `oklch(from var(${colorVar}) l c h / 0.4)`,
           }}
         >

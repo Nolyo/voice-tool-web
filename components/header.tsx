@@ -96,7 +96,7 @@ export function Header() {
             size="sm"
             className="hidden sm:inline-flex h-8 rounded-[10px] px-3.5 text-[12.5px] font-medium"
             style={{
-              background: "var(--vt-accent)",
+              background: "var(--vt-accent-strong)",
               color: "white",
               boxShadow: "var(--vt-shadow-primary-glow)",
               borderColor: "oklch(from var(--vt-accent) l c h / 0.55)",
@@ -229,6 +229,10 @@ function MobileMenu({
       aria-modal="true"
       aria-label={t("menuTitle")}
       aria-hidden={!open}
+      // `inert` removes the closed-menu subtree from focus + a11y tree, so we
+      // don't have to maintain tabIndex={open ? 0 : -1} on every child and we
+      // satisfy axe's aria-hidden-focus rule.
+      inert={!open}
       className={cn(
         "md:hidden transition-opacity duration-200",
         open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",

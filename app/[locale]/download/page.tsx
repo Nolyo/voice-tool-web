@@ -87,7 +87,7 @@ export default function DownloadPage() {
                 asChild
                 className="mt-5 h-10 rounded-[10px] px-4 text-[13px] gap-2"
                 style={{
-                  background: "var(--vt-accent)",
+                  background: "var(--vt-accent-strong)",
                   color: "white",
                   boxShadow: "var(--vt-shadow-primary-glow)",
                   borderColor: "oklch(from var(--vt-accent) l c h / 0.55)",
@@ -390,7 +390,7 @@ function PlatformCard({
                 size="sm"
                 className="h-9 rounded-[8px] text-[12.5px] font-medium gap-2"
                 style={{
-                  background: "var(--vt-accent)",
+                  background: "var(--vt-accent-strong)",
                   color: "white",
                   boxShadow: "var(--vt-shadow-primary-glow)",
                   borderColor: "oklch(from var(--vt-accent) l c h / 0.55)",

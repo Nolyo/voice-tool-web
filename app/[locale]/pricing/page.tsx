@@ -123,7 +123,7 @@ function PricingPlans() {
               asChild
               className="h-11 rounded-[10px] px-5 text-[14px] font-medium gap-2 mt-2"
               style={{
-                background: "var(--vt-accent)",
+                background: "var(--vt-accent-strong)",
                 color: "white",
                 boxShadow: "var(--vt-shadow-primary-glow)",
                 borderColor: "oklch(from var(--vt-accent) l c h / 0.55)",

@@ -39,9 +39,11 @@
   --vt-border-strong: oklch(0.36 0.035 230);
   --vt-fg: oklch(0.96 0.005 230);
   --vt-fg-2: oklch(0.78 0.01 230);
-  --vt-fg-3: oklch(0.6 0.015 230);
-  --vt-fg-4: oklch(0.48 0.015 230);
+  --vt-fg-3: oklch(0.7 0.015 230);
+  --vt-fg-4: oklch(0.66 0.015 230);
   --vt-accent: oklch(0.68 0.14 162);
+  /* Darker accent for solid CTA backgrounds — passes WCAG AA with white text. */
+  --vt-accent-strong: oklch(0.52 0.14 162);
   --vt-accent-2: oklch(0.78 0.13 162);
   --vt-accent-soft: oklch(0.68 0.14 162 / 0.14);
   --vt-warn: oklch(0.78 0.14 75);
@@ -91,7 +93,7 @@
   --card-foreground: var(--vt-fg);
   --popover: var(--vt-panel-2);
   --popover-foreground: var(--vt-fg);
-  --primary: var(--vt-accent);
+  --primary: var(--vt-accent-strong);
   --primary-foreground: oklch(1 0 0);
   --secondary: var(--vt-surface);
   --secondary-foreground: var(--vt-fg);
