@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { useEffect, useId, useRef, useState } from "react"
+import { useEffect, useId, useRef, useState, useSyncExternalStore } from "react"
 import { createPortal } from "react-dom"
 import { Button } from "@/components/ui/button"
 import { useTranslations } from "next-intl"
@@ -198,11 +198,12 @@ function MobileMenu({
 }: MobileMenuProps) {
   const t = useTranslations("nav")
   const closeRef = useRef<HTMLButtonElement>(null)
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+  // Render only after mount so createPortal can read document.body.
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  )
 
   useEffect(() => {
     if (!open) return
