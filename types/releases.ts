@@ -31,6 +31,7 @@ export interface Release {
   published_at: string
   changelog_url: string
   release_notes: string
+  prerelease?: boolean
   windows?: WindowsInstallers
   linux?: LinuxInstallers
   macos?: MacOSInstallers

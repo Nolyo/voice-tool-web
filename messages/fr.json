@@ -514,7 +514,21 @@
       "shaCopied": "SHA256 copié",
       "showPrevious": "Versions précédentes",
       "hidePrevious": "Masquer les versions précédentes",
-      "openReleases": "Toutes les versions sur GitHub →"
+      "openReleases": "Toutes les versions sur GitHub →",
+      "showStable": "Afficher la version stable",
+      "hideStable": "Masquer la version stable"
+    },
+    "beta": {
+      "eyebrow": "Bêta · Recommandé",
+      "title": "Lexena 3.0 — bêta publique",
+      "description": "La 3.0 est la version active du projet : nouveau design, performances revues, profils IA. On vous invite à la tester en priorité.",
+      "note": "Pré-release publique : si vous rencontrez un bug, ouvrez une issue sur GitHub.",
+      "changelogLabel": "Voir le changelog"
+    },
+    "stable": {
+      "eyebrow": "Version stable",
+      "title": "Lexena {version} — stable",
+      "description": "Dernière version stable disponible si vous préférez ne pas tester la bêta."
     },
     "loading": "Chargement des versions…",
     "error": {
