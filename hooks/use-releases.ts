@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import type { ReleasesData, Release } from "@/types/releases"
+import { BETA_PROMOTED, BETA_RELEASE } from "@/lib/beta-release"
 
 const RELEASES_URL =
   process.env.NEXT_PUBLIC_RELEASES_URL ??
@@ -17,6 +18,7 @@ interface CachedData {
 interface UseReleasesReturn {
   data: ReleasesData | null
   latest: Release | null
+  stableLatest: Release | null
   releases: Release[]
   isLoading: boolean
   error: Error | null
@@ -92,10 +94,20 @@ export function useReleases(): UseReleasesReturn {
     fetchReleases()
   }, [])
 
+  const upstreamLatest = data?.latest ?? null
+  const upstreamReleases = data?.releases ?? []
+
+  const latest = BETA_PROMOTED ? BETA_RELEASE : upstreamLatest
+  const stableLatest = BETA_PROMOTED ? upstreamLatest : null
+  const releases = BETA_PROMOTED
+    ? [BETA_RELEASE, ...upstreamReleases]
+    : upstreamReleases
+
   return {
     data,
-    latest: data?.latest ?? null,
-    releases: data?.releases ?? [],
+    latest,
+    stableLatest,
+    releases,
     isLoading,
     error,
     refetch: fetchReleases,

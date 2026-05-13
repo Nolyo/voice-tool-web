@@ -16,6 +16,7 @@ import {
   ChevronUp,
   Copy,
   Check,
+  Sparkles,
 } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { useReleases } from "@/hooks/use-releases"
@@ -33,11 +34,23 @@ interface InstallerLike {
 export default function DownloadPage() {
   const t = useTranslations("download")
   const tc = useTranslations("common")
-  const { latest, releases, isLoading, error } = useReleases()
+  const { latest, stableLatest, releases, isLoading, error } = useReleases()
   const [showPrev, setShowPrev] = useState(false)
+  const [showStable, setShowStable] = useState(false)
   const [copiedSha, setCopiedSha] = useState<string | null>(null)
 
-  const previous = releases.filter((r) => r.version !== latest?.version).slice(0, 5)
+  const previous = releases
+    .filter(
+      (r) =>
+        r.version !== latest?.version && r.version !== stableLatest?.version,
+    )
+    .slice(0, 5)
+
+  const handleCopySha = (sha: string) => {
+    navigator.clipboard.writeText(sha).catch(() => {})
+    setCopiedSha(sha)
+    setTimeout(() => setCopiedSha(null), 1500)
+  }
 
   return (
     <>
@@ -105,110 +118,68 @@ export default function DownloadPage() {
             </div>
           ) : (
             <div className="space-y-10 max-w-5xl">
-              <PlatformCard
-                icon={Monitor}
-                title={t("platforms.windows.title")}
-                requirement={t("platforms.windows.requirement")}
-                installers={[
-                  {
-                    key: "nsis_installer",
-                    label: t("platforms.windows.installers.nsis"),
-                    hint: t("platforms.windows.installers.nsisHint"),
-                    asset: latest.windows?.nsis_installer,
-                  },
-                  {
-                    key: "msi_installer",
-                    label: t("platforms.windows.installers.msi"),
-                    hint: t("platforms.windows.installers.msiHint"),
-                    asset: latest.windows?.msi_installer,
-                  },
-                  {
-                    key: "portable",
-                    label: t("platforms.windows.installers.portable"),
-                    hint: t("platforms.windows.installers.portableHint"),
-                    asset: latest.windows?.portable,
-                  },
-                ]}
-                version={latest.version}
-                copyShaLabel={t("buttons.copySha")}
-                copiedLabel={t("buttons.shaCopied")}
-                downloadLabel={t("buttons.download")}
-                copiedSha={copiedSha}
-                onCopySha={(sha) => {
-                  navigator.clipboard.writeText(sha).catch(() => {})
-                  setCopiedSha(sha)
-                  setTimeout(() => setCopiedSha(null), 1500)
-                }}
-              />
-
-              {(latest.linux && Object.keys(latest.linux).length > 0) ? (
-                <PlatformCard
-                  icon={Monitor}
-                  title={t("platforms.linux.title")}
-                  requirement={t("platforms.linux.requirement")}
-                  installers={[
-                    {
-                      key: "deb",
-                      label: t("platforms.linux.installers.deb"),
-                      asset: latest.linux?.deb,
-                    },
-                    {
-                      key: "rpm",
-                      label: t("platforms.linux.installers.rpm"),
-                      asset: latest.linux?.rpm,
-                    },
-                    {
-                      key: "appimage",
-                      label: t("platforms.linux.installers.appimage"),
-                      asset: latest.linux?.appimage,
-                    },
-                    {
-                      key: "tarball",
-                      label: t("platforms.linux.installers.tarball"),
-                      asset: latest.linux?.tarball,
-                    },
-                  ]}
-                  version={latest.version}
-                  downloadLabel={t("buttons.download")}
-                  copyShaLabel={t("buttons.copySha")}
-                  copiedLabel={t("buttons.shaCopied")}
+              {latest.prerelease ? (
+                <BetaHighlight
+                  eyebrow={t("beta.eyebrow")}
+                  title={t("beta.title")}
+                  description={t("beta.description")}
+                  note={t("beta.note")}
+                  changelogLabel={t("beta.changelogLabel")}
+                  release={latest}
+                >
+                  <PlatformCardsForRelease
+                    release={latest}
+                    t={t}
+                    copiedSha={copiedSha}
+                    onCopySha={handleCopySha}
+                  />
+                </BetaHighlight>
+              ) : (
+                <PlatformCardsForRelease
+                  release={latest}
+                  t={t}
                   copiedSha={copiedSha}
-                  onCopySha={(sha) => {
-                    navigator.clipboard.writeText(sha).catch(() => {})
-                    setCopiedSha(sha)
-                    setTimeout(() => setCopiedSha(null), 1500)
-                  }}
+                  onCopySha={handleCopySha}
                 />
-              ) : null}
+              )}
 
-              {(latest.macos && Object.keys(latest.macos).length > 0) ? (
-                <PlatformCard
-                  icon={Apple}
-                  title={t("platforms.macos.title")}
-                  requirement={t("platforms.macos.requirement")}
-                  installers={[
-                    {
-                      key: "dmg",
-                      label: t("platforms.macos.installers.dmg"),
-                      asset: latest.macos?.dmg,
-                    },
-                    {
-                      key: "app",
-                      label: t("platforms.macos.installers.app"),
-                      asset: latest.macos?.app,
-                    },
-                  ]}
-                  version={latest.version}
-                  downloadLabel={t("buttons.download")}
-                  copyShaLabel={t("buttons.copySha")}
-                  copiedLabel={t("buttons.shaCopied")}
-                  copiedSha={copiedSha}
-                  onCopySha={(sha) => {
-                    navigator.clipboard.writeText(sha).catch(() => {})
-                    setCopiedSha(sha)
-                    setTimeout(() => setCopiedSha(null), 1500)
-                  }}
-                />
+              {stableLatest ? (
+                <div
+                  className="rounded-[14px] border border-[var(--vt-border)] overflow-hidden"
+                  style={{ background: "var(--vt-panel-2)" }}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setShowStable(!showStable)}
+                    className="flex w-full items-center justify-between px-6 py-4 text-left"
+                    aria-expanded={showStable}
+                  >
+                    <div className="flex flex-col gap-1">
+                      <Eyebrow>{t("stable.eyebrow")}</Eyebrow>
+                      <span className="text-[14px] font-medium text-[var(--vt-fg)]">
+                        {t("stable.title", { version: stableLatest.version })}
+                      </span>
+                    </div>
+                    {showStable ? (
+                      <ChevronUp className="h-4 w-4 text-[var(--vt-fg-3)]" />
+                    ) : (
+                      <ChevronDown className="h-4 w-4 text-[var(--vt-fg-3)]" />
+                    )}
+                  </button>
+                  {showStable ? (
+                    <div className="border-t border-[var(--vt-border)] p-6 sm:p-7 space-y-6">
+                      <p className="text-[13.5px] text-[var(--vt-fg-3)] leading-[1.6] max-w-3xl">
+                        {t("stable.description")}
+                      </p>
+                      <PlatformCardsForRelease
+                        release={stableLatest}
+                        t={t}
+                        copiedSha={copiedSha}
+                        onCopySha={handleCopySha}
+                      />
+                    </div>
+                  ) : null}
+                </div>
               ) : null}
 
               {previous.length > 0 ? (
@@ -295,6 +266,189 @@ export default function DownloadPage() {
         </Container>
       </main>
       <Footer />
+    </>
+  )
+}
+
+function BetaHighlight({
+  eyebrow,
+  title,
+  description,
+  note,
+  changelogLabel,
+  release,
+  children,
+}: {
+  eyebrow: string
+  title: string
+  description: string
+  note: string
+  changelogLabel: string
+  release: Release
+  children: React.ReactNode
+}) {
+  return (
+    <section
+      className="rounded-[18px] border p-6 sm:p-8 space-y-6"
+      style={{
+        background:
+          "linear-gradient(180deg, oklch(from var(--vt-accent) l c h / 0.08) 0%, var(--vt-panel-2) 60%)",
+        borderColor: "oklch(from var(--vt-accent) l c h / 0.45)",
+        boxShadow: "var(--vt-shadow-primary-glow)",
+      }}
+      aria-labelledby="beta-heading"
+    >
+      <div className="space-y-3 max-w-3xl">
+        <div className="flex items-center gap-2">
+          <span
+            className="grid h-6 w-6 place-items-center rounded-full"
+            style={{
+              background: "var(--vt-accent-soft)",
+              color: "var(--vt-accent-2)",
+              border: "1px solid oklch(from var(--vt-accent) l c h / 0.45)",
+            }}
+          >
+            <Sparkles className="h-3 w-3" aria-hidden />
+          </span>
+          <Eyebrow tone="accent" withDot>
+            {eyebrow}
+          </Eyebrow>
+        </div>
+        <h2
+          id="beta-heading"
+          className="vt-display text-[24px] sm:text-[28px] font-semibold tracking-[-0.01em] text-[var(--vt-fg)]"
+        >
+          {title}
+        </h2>
+        <p className="text-[14.5px] leading-[1.6] text-[var(--vt-fg-2)]">
+          {description}
+        </p>
+        <p
+          className="vt-mono text-[11px] uppercase tracking-[0.08em]"
+          style={{ color: "var(--vt-accent-2)" }}
+        >
+          {note}
+        </p>
+        <a
+          href={release.changelog_url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="vt-mono inline-flex items-center gap-1.5 text-[11px] uppercase tracking-[0.08em] text-[var(--vt-accent-2)] hover:text-[var(--vt-fg)]"
+        >
+          {changelogLabel} →
+        </a>
+      </div>
+      <div className="space-y-6">{children}</div>
+    </section>
+  )
+}
+
+function PlatformCardsForRelease({
+  release,
+  t,
+  copiedSha,
+  onCopySha,
+}: {
+  release: Release
+  t: ReturnType<typeof useTranslations>
+  copiedSha: string | null
+  onCopySha: (sha: string) => void
+}) {
+  return (
+    <>
+      <PlatformCard
+        icon={Monitor}
+        title={t("platforms.windows.title")}
+        requirement={t("platforms.windows.requirement")}
+        installers={[
+          {
+            key: "nsis_installer",
+            label: t("platforms.windows.installers.nsis"),
+            hint: t("platforms.windows.installers.nsisHint"),
+            asset: release.windows?.nsis_installer,
+          },
+          {
+            key: "msi_installer",
+            label: t("platforms.windows.installers.msi"),
+            hint: t("platforms.windows.installers.msiHint"),
+            asset: release.windows?.msi_installer,
+          },
+          {
+            key: "portable",
+            label: t("platforms.windows.installers.portable"),
+            hint: t("platforms.windows.installers.portableHint"),
+            asset: release.windows?.portable,
+          },
+        ]}
+        version={release.version}
+        copyShaLabel={t("buttons.copySha")}
+        copiedLabel={t("buttons.shaCopied")}
+        downloadLabel={t("buttons.download")}
+        copiedSha={copiedSha}
+        onCopySha={onCopySha}
+      />
+
+      {release.linux && Object.keys(release.linux).length > 0 ? (
+        <PlatformCard
+          icon={Monitor}
+          title={t("platforms.linux.title")}
+          requirement={t("platforms.linux.requirement")}
+          installers={[
+            {
+              key: "deb",
+              label: t("platforms.linux.installers.deb"),
+              asset: release.linux?.deb,
+            },
+            {
+              key: "rpm",
+              label: t("platforms.linux.installers.rpm"),
+              asset: release.linux?.rpm,
+            },
+            {
+              key: "appimage",
+              label: t("platforms.linux.installers.appimage"),
+              asset: release.linux?.appimage,
+            },
+            {
+              key: "tarball",
+              label: t("platforms.linux.installers.tarball"),
+              asset: release.linux?.tarball,
+            },
+          ]}
+          version={release.version}
+          downloadLabel={t("buttons.download")}
+          copyShaLabel={t("buttons.copySha")}
+          copiedLabel={t("buttons.shaCopied")}
+          copiedSha={copiedSha}
+          onCopySha={onCopySha}
+        />
+      ) : null}
+
+      {release.macos && Object.keys(release.macos).length > 0 ? (
+        <PlatformCard
+          icon={Apple}
+          title={t("platforms.macos.title")}
+          requirement={t("platforms.macos.requirement")}
+          installers={[
+            {
+              key: "dmg",
+              label: t("platforms.macos.installers.dmg"),
+              asset: release.macos?.dmg,
+            },
+            {
+              key: "app",
+              label: t("platforms.macos.installers.app"),
+              asset: release.macos?.app,
+            },
+          ]}
+          version={release.version}
+          downloadLabel={t("buttons.download")}
+          copyShaLabel={t("buttons.copySha")}
+          copiedLabel={t("buttons.shaCopied")}
+          copiedSha={copiedSha}
+          onCopySha={onCopySha}
+        />
+      ) : null}
     </>
   )
 }
