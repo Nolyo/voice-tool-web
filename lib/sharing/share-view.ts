@@ -28,6 +28,11 @@ export function isValidSlug(slug: string): boolean {
  */
 export const fetchSharedNote = cache(
   async (slug: string): Promise<ShareViewResult> => {
+    // Format validation is independent of the backend — a malformed slug is
+    // "not found" whether or not Supabase is reachable. Checked first so this
+    // path stays deterministic without env (e.g. in CI).
+    if (!isValidSlug(slug)) return { status: "not_found" }
+
     const base = process.env.SUPABASE_URL
     const key = process.env.SUPABASE_PUBLISHABLE_KEY
     if (!base || !key) {
@@ -36,7 +41,6 @@ export const fetchSharedNote = cache(
       )
       return { status: "error" }
     }
-    if (!isValidSlug(slug)) return { status: "not_found" }
 
     try {
       const res = await fetch(
