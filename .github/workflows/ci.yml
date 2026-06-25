@@ -59,6 +59,12 @@ jobs:
 
       - name: Smoke tests (Playwright)
         run: pnpm test:e2e
+        env:
+          # Public Supabase values (project URL + publishable client key) so the
+          # share page e2e exercises the real share-view endpoint (unknown slug
+          # → 404 → not-found state). Not secret, but kept in repo secrets.
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_PUBLISHABLE_KEY: ${{ secrets.SUPABASE_PUBLISHABLE_KEY }}
 
       - name: Upload Playwright report on failure
         if: failure()
