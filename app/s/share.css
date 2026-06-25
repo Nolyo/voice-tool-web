@@ -1,0 +1,206 @@
+/* Public note-sharing page (/s/<slug>). Dark theme via .vt-app tokens from globals.css. */
+
+.share-page {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--vt-bg);
+  color: var(--vt-fg);
+  font-family: var(--font-ui);
+}
+
+/* Top bar */
+.share-topbar {
+  display: flex;
+  align-items: center;
+  height: 56px;
+  padding: 0 20px;
+  border-bottom: 1px solid var(--vt-border);
+  background: color-mix(in oklch, var(--vt-bg), transparent 25%);
+  backdrop-filter: saturate(140%) blur(10px);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.share-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--vt-fg);
+}
+.share-brand-logo {
+  height: 28px;
+  width: 28px;
+  border-radius: 7px;
+}
+.share-brand-name {
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+}
+
+/* Main */
+.share-main {
+  flex: 1;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 24px 64px;
+}
+
+/* Note */
+.share-note-title {
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--vt-fg);
+  margin: 0 0 8px;
+}
+.share-note-meta {
+  font-size: 13px;
+  color: var(--vt-fg-3);
+  margin: 0 0 28px;
+}
+
+/* States (404 / error) */
+.share-state {
+  max-width: 560px;
+  margin: 10vh auto 0;
+  text-align: center;
+}
+.share-state-title {
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 600;
+  color: var(--vt-fg);
+  margin: 0 0 10px;
+}
+.share-state-body {
+  font-size: 16px;
+  color: var(--vt-fg-2);
+  margin: 0;
+}
+
+/* Footer */
+.share-footer {
+  border-top: 1px solid var(--vt-border);
+  padding: 20px 24px;
+  text-align: center;
+}
+.share-footer-cta {
+  display: inline-flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--vt-fg-3);
+  text-decoration: none;
+  padding: 6px 14px;
+  border: 1px solid var(--vt-border);
+  border-radius: 999px;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.share-footer-cta:hover {
+  color: var(--vt-fg);
+  border-color: var(--vt-border-strong);
+  background: var(--vt-hover-soft);
+}
+
+/* ── Rendered note body (sanitized TipTap HTML) ───────────────────────────── */
+.note-body {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--vt-fg-2);
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+.note-body > :first-child {
+  margin-top: 0;
+}
+.note-body h1,
+.note-body h2,
+.note-body h3,
+.note-body h4 {
+  color: var(--vt-fg);
+  font-weight: 650;
+  line-height: 1.25;
+  margin: 1.6em 0 0.5em;
+  letter-spacing: -0.01em;
+}
+.note-body h1 { font-size: 1.7em; }
+.note-body h2 { font-size: 1.4em; }
+.note-body h3 { font-size: 1.18em; }
+.note-body h4 { font-size: 1.05em; }
+.note-body p { margin: 0 0 1em; }
+.note-body a {
+  color: var(--vt-accent-2);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.note-body ul,
+.note-body ol {
+  margin: 0 0 1em;
+  padding-left: 1.5em;
+}
+.note-body li { margin: 0.25em 0; }
+.note-body li > ul,
+.note-body li > ol { margin-bottom: 0; }
+.note-body blockquote {
+  margin: 0 0 1em;
+  padding: 0.2em 0 0.2em 1em;
+  border-left: 3px solid var(--vt-border-strong);
+  color: var(--vt-fg-3);
+}
+.note-body code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background: var(--vt-surface);
+  border: 1px solid var(--vt-border);
+  border-radius: 5px;
+  padding: 0.12em 0.38em;
+}
+.note-body pre {
+  background: var(--vt-panel-2);
+  border: 1px solid var(--vt-border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  overflow-x: auto;
+  margin: 0 0 1em;
+}
+.note-body pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.85em;
+  color: var(--vt-fg);
+}
+.note-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin: 0.5em 0;
+}
+.note-body hr {
+  border: none;
+  border-top: 1px solid var(--vt-border);
+  margin: 1.8em 0;
+}
+.note-body table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 0 1em;
+  font-size: 0.95em;
+}
+.note-body th,
+.note-body td {
+  border: 1px solid var(--vt-border);
+  padding: 7px 10px;
+  text-align: left;
+}
+.note-body th {
+  background: var(--vt-surface);
+  color: var(--vt-fg);
+  font-weight: 600;
+}
+.note-body strong { color: var(--vt-fg); }
