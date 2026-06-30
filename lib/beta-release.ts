@@ -1,6 +1,6 @@
 import type { Release } from "@/types/releases"
 
-export const BETA_PROMOTED = true
+export const BETA_PROMOTED = false
 
 export const BETA_RELEASE: Release = {
   version: "3.0.0-beta.9",
