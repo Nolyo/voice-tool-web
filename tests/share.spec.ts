@@ -5,6 +5,19 @@ import { expect, test } from "@playwright/test"
 // the not-found / invalid / header tests are always stable.
 
 test.describe("public share page", () => {
+  test("loads the Umami tracker", async ({ page }) => {
+    await page.goto("/s/short")
+
+    const tracker = page.locator(
+      'script[src="https://umami.yohann-jaffres.fr/script.js"]',
+    )
+    await expect(tracker).toHaveCount(1)
+    await expect(tracker).toHaveAttribute(
+      "data-website-id",
+      "90968d31-bdc6-4bb1-927f-1cb0aaaa8769",
+    )
+  })
+
   test("invalid slug renders the neutral not-found state", async ({ page }) => {
     const errors: string[] = []
     page.on("pageerror", (e) => errors.push(e.message))
