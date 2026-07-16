@@ -76,6 +76,12 @@ export default async function LocaleLayout({
             strategy="afterInteractive"
           />
         ) : null}
+        <Script
+          defer
+          data-website-id="90968d31-bdc6-4bb1-927f-1cb0aaaa8769"
+          src="https://umami.yohann-jaffres.fr/script.js"
+          strategy="afterInteractive"
+        />
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>

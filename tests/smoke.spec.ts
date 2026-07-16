@@ -27,6 +27,19 @@ for (const path of ROUTES) {
   })
 }
 
+test("loads the Umami tracker once", async ({ page }) => {
+  await page.goto("/")
+
+  const tracker = page.locator(
+    'script[src="https://umami.yohann-jaffres.fr/script.js"]',
+  )
+  await expect(tracker).toHaveCount(1)
+  await expect(tracker).toHaveAttribute(
+    "data-website-id",
+    "90968d31-bdc6-4bb1-927f-1cb0aaaa8769",
+  )
+})
+
 const HOME_ROUTES = ["/", "/fr"]
 for (const path of HOME_ROUTES) {
   test(`exposes valid SoftwareApplication JSON-LD on ${path}`, async ({ page }) => {

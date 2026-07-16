@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Script from "next/script"
 import { Geist, Inter, JetBrains_Mono } from "next/font/google"
 import "../globals.css"
 import "./share.css"
@@ -39,6 +40,12 @@ export default function ShareLayout({
       <body
         className={`${geist.variable} ${inter.variable} ${jetbrainsMono.variable} vt-app antialiased`}
       >
+        <Script
+          defer
+          data-website-id="90968d31-bdc6-4bb1-927f-1cb0aaaa8769"
+          src="https://umami.yohann-jaffres.fr/script.js"
+          strategy="afterInteractive"
+        />
         {children}
       </body>
     </html>
